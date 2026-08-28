@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Viatrix Tours & Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#163C2E;
+    --forest-deep:#0F2B21;
+    --gold:#D9A054;
+    --cream:#FBF6EE;
+    --cream-card:#FFFFFF;
+    --charcoal:#26251F;
+    --muted:#7B7A72;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --shadow-card: 0 16px 34px -18px rgba(22,60,46,0.28);
+    --shadow-pop: 0 24px 60px -22px rgba(22,60,46,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;margin:0;color:var(--forest-deep);letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;}}
+
+  /* ---------- Nav — transparent, floats on the hero photo ---------- */
+  .site-nav{position:absolute;top:0;left:0;right:0;z-index:20;background:transparent;}
+  .site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:96px;}
+  .nav-logo{display:flex;align-items:center;gap:.5rem;}
+  .site-nav .nav-logo-img{display:block;width:104px;height:74px;object-fit:contain;}
+  .nav-logo .mark{font-size:1.1rem;color:#fff;}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:#fff;}
+  .nav-logo-text small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.68rem;color:rgba(255,255,255,0.75);letter-spacing:.02em;}
+  .nav-links{display:flex;gap:2.2rem;list-style:none;margin:0;padding:0;font-size:.92rem;font-weight:500;color:#fff;}
+  .nav-links a.is-current{border-bottom:2px solid var(--gold);padding-bottom:4px;}
+  .nav-right{display:flex;align-items:center;gap:.9rem;}
+  .nav-contact{background:#fff;color:var(--forest-deep);padding:.75rem 1.5rem;border-radius:999px;font-weight:600;font-size:.88rem;}
+  .nav-menu-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;}
+  @media (max-width:860px){.nav-links{display:none;}}
+
+  /* ---------- Page hero banner ---------- */
+  .page-hero{position:relative;}
+  .page-hero-frame{position:relative;overflow:hidden;height:min(52vh,460px);min-height:360px;}
+  .page-hero-frame img{width:100%;height:100%;object-fit:cover;}
+  .page-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,43,33,0.55) 0%, rgba(15,43,33,0.25) 45%, rgba(15,43,33,0.7) 100%);}
+  .page-hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 2.6rem;color:#fff;}
+  .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,0.75);margin-bottom:.8rem;}
+  .breadcrumb .sep{opacity:.6;}
+  .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.4vw,3.2rem);}
+  .page-hero p.sub{margin-top:.7rem;max-width:520px;color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.55;}
+
+  /* ---------- Services grid ---------- */
+  .services-section{padding:5.5rem 0 2rem;}
+  .section-head{max-width:560px;margin:0 auto 3rem;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.3rem);margin-top:.5rem;}
+  .section-head p{margin-top:.8rem;font-size:.98rem;color:var(--muted);line-height:1.6;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem;align-items:stretch;}
+  .service-card{
+    background:var(--cream-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);
+    overflow:hidden;transition:transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:0 26px 44px -18px rgba(22,60,46,0.32);}
+  .service-img-wrap{position:relative;aspect-ratio:4/2.7;overflow:hidden;}
+  .service-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,.61,.36,1);}
+  .service-card:hover .service-img-wrap img{transform:scale(1.07);}
+  .service-icon{
+    position:absolute;left:1.4rem;bottom:-24px;width:48px;height:48px;border-radius:12px;background:var(--forest-deep);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);box-shadow:0 10px 20px -8px rgba(22,60,46,0.5);
+  }
+  .service-body{padding:2.1rem 1.7rem 1.7rem;}
+  .service-card h3{font-size:1.15rem;margin-bottom:.6rem;}
+  .service-card p{font-size:.9rem;line-height:1.6;color:rgba(38,37,31,0.72);margin-bottom:1.2rem;}
+  .service-link{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.86rem;color:var(--forest);}
+  .service-link .arrow{transition:transform .25s cubic-bezier(.22,.61,.36,1);}
+  .service-card:hover .service-link .arrow{transform:translateX(4px);}
+  @media (max-width:980px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:640px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ---------- How it works ---------- */
+  .process{padding:6rem 0;}
+  .process-inner{
+    background:var(--forest-deep);border-radius:28px;padding:3.6rem 3rem;color:#fff;
+  }
+  .process .section-head h2, .process .section-head p{color:#fff;}
+  .process .section-head p{color:rgba(251,245,234,0.68);}
+  .process .eyebrow{color:var(--gold);}
+  .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.8rem;}
+  .step{position:relative;padding-left:0;}
+  .step-num{
+    font-family:'Fraunces',serif;font-size:2.2rem;color:var(--gold);margin-bottom:.8rem;font-weight:600;
+  }
+  .step h4{color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.5rem;}
+  .step p{font-size:.86rem;color:rgba(251,245,234,0.65);line-height:1.55;}
+  @media (max-width:980px){.process-steps{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.process-steps{grid-template-columns:1fr;} .process-inner{padding:2.6rem 1.8rem;}}
+
+  /* ---------- Bottom CTA banner (reused pattern) ---------- */
+  .promo{padding:0 0 6rem;}
+  .promo-card{position:relative;border-radius:24px;overflow:hidden;min-height:300px;display:flex;align-items:center;background:var(--forest-deep);}
+  .promo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;}
+  .promo-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(15,43,33,0.94) 0%, rgba(15,43,33,0.72) 42%, rgba(15,43,33,0.15) 85%);}
+  .promo-copy{position:relative;padding:3rem;max-width:480px;color:#fff;}
+  .promo-copy h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin:.6rem 0 .8rem;}
+  .promo-copy p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:1.6rem;}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:600;font-size:.93rem;transition:transform .25s, background .25s;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-light{background:#fff;color:var(--forest-deep);}
+  .btn-light:hover{background:var(--cream);}
+
+  /* ---------- Footer (shared) ---------- */
+  footer.site-footer{background:var(--forest-deep);color:rgba(251,245,234,0.7);padding:4.5rem 0 2rem;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(251,245,234,0.12);}
+  .footer-brand .nav-logo-text{color:#fff;}
+  .footer-brand .nav-logo-text small{color:rgba(251,245,234,0.55);}
+  .footer-brand p{margin-top:1rem;font-size:.88rem;line-height:1.6;max-width:260px;}
+  .footer-col h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;font-size:.92rem;margin-bottom:1.1rem;}
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;}
+  .footer-col a:hover{color:#fff;}
+  .newsletter-input{display:flex;margin-top:1rem;background:rgba(251,245,234,0.08);border-radius:999px;padding:.4rem;}
+  .newsletter-input input{flex:1;background:none;border:none;padding:.6rem 1rem;color:#fff;font-size:.85rem;}
+  .newsletter-input input::placeholder{color:rgba(251,245,234,0.5);}
+  .newsletter-input button{width:38px;height:38px;border-radius:50%;background:var(--gold);color:var(--forest-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.8rem;flex-wrap:wrap;gap:1rem;}
+  .social-icons{display:flex;gap:.8rem;}
+  .social-icons a{width:34px;height:34px;border-radius:50%;background:rgba(251,245,234,0.08);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+  @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE HERO — same transparent-nav-on-photo treatment used
+     across the site
+     ============================================================ -->
+<header class="page-hero">
+  <div class="page-hero-frame">
+    <!-- DUMMY IMAGE — safari guide with travelers — replace with licensed Viatrix photography -->
+    <img src="https://images.unsplash.com/photo-1547970825-83a95a29b57c?auto=format&fit=crop&w=2200&q=80"
+         alt="Safari guide leading travelers on a game drive in Uganda">
+    <div class="page-hero-scrim"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="wrap">
+        <a href="index.html" class="nav-logo">
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
+        </a>
+        <ul class="nav-links">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html" class="is-current">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="#" class="nav-contact">Contact Us</a>
+          <button class="nav-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero-copy">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span>Services</span>
+      </div>
+      <h1>Our Services</h1>
+      <p class="sub">Everything around the trip itself — planning, permits, transport, and support — handled so you can focus on the experience.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     SERVICES GRID
+     ============================================================ -->
+<section class="services-section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What We Offer</p>
+      <h2>Full-Service Travel Planning</h2>
+      <p>From your first inquiry to landing back home, every part of the journey is handled by people who know Uganda well.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — trip planning, person reading a map — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&w=800&q=80" alt="Person planning a route on a map">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21V9l9-6 9 6v12M9 21v-6h6v6" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>Custom Itinerary Planning</h3>
+          <p>Tell us your dates, budget, and interests — we design a day-by-day route built entirely around your group.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — airport tarmac, arriving flight — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1558204692-5f402fe220b9?auto=format&fit=crop&w=800&q=80" alt="Airplane parked on the tarmac at Entebbe">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>Airport Transfers</h3>
+          <p>Private pickup and drop-off at Entebbe International, timed to your flight, with a driver waiting at arrivals.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — safari 4x4 parked in the bush — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1645777762255-42cf89268517?auto=format&fit=crop&w=800&q=80" alt="Safari 4x4 vehicle parked in a grass field">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 15v-3a8 8 0 0116 0v3" stroke="currentColor" stroke-width="1.8"/><path d="M4 15a2 2 0 002 2h1v-5H6a2 2 0 00-2 2zM20 15a2 2 0 00-2-2h-1v5h1a2 2 0 002-2z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>4x4 Vehicle & Guide Hire</h3>
+          <p>Safari-fitted 4x4s with an experienced driver-guide for the whole trip, or self-drive rentals for independent travelers.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — lodge pool and patio — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1667987566780-3b31fa5485c8?auto=format&fit=crop&w=800&q=80" alt="Safari lodge pool and patio">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0112 3a7 7 0 017 6.5C19 14.7 12 21 12 21z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>Accommodation Booking</h3>
+          <p>We hold the relationships with lodges and camps across every park, and book the right stay for your budget and style.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — passport with travel stamps — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1581553673739-c4906b5d0de8?auto=format&fit=crop&w=800&q=80" alt="Open passport with colorful travel stamps">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>Permits & Visa Assistance</h3>
+          <p>Gorilla and chimp trekking permits, national park fees, and Uganda e-visa guidance sorted well ahead of your trip.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-img-wrap">
+          <!-- DUMMY IMAGE — safari vehicle on a forest road — replace with licensed Viatrix photography -->
+          <img src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?auto=format&fit=crop&w=800&q=80" alt="Vehicle driving a guide route between trees">
+          <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M5 21c0-3.5 3.1-6 7-6s7 2.5 7 6" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        </div>
+        <div class="service-body">
+          <h3>Expert Local Guides</h3>
+          <p>Licensed, English-speaking guides with deep knowledge of wildlife, terrain, and culture, on every guided trip we run.</p>
+          <a href="#" class="service-link">Learn more <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+<section class="process">
+  <div class="wrap">
+    <div class="process-inner reveal">
+      <div class="section-head">
+        <p class="eyebrow">How It Works</p>
+        <h2>Booking with us, start to finish</h2>
+        <p>A simple four-step process from your first message to landing back home.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Tell us your trip</h4>
+          <p>Share your dates, group size, and what you want to see — through the search bar, email, or a quick call.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Get a tailored plan</h4>
+          <p>We put together an itinerary and quote matched to your budget, usually within 24 hours.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>We handle logistics</h4>
+          <p>Permits, lodges, transport, and guides are booked and confirmed — you just pack your bags.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Travel, supported</h4>
+          <p>A local contact is reachable throughout your trip, from airport pickup to the final drop-off.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="promo">
+  <div class="wrap">
+    <div class="promo-card reveal">
+      <!-- DUMMY IMAGE — traveler on a game drive — replace with licensed Viatrix photography -->
+      <img src="https://images.unsplash.com/photo-1765706729858-76ae4bcd2f41?auto=format&fit=crop&w=1600&q=80" alt="Traveler on a safari game drive in Uganda">
+      <div class="promo-scrim"></div>
+      <div class="promo-copy">
+        <p class="eyebrow">Have Questions?</p>
+        <h2>Let's plan your trip together</h2>
+        <p>Reach out and a real person on our team will help you build the right itinerary — no bots, no templates.</p>
+        <a href="#" class="btn btn-light">Talk to a Travel Expert <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (shared with rest of site)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="mark" style="color:#fff;">✈</span>
+          <span class="nav-logo-text">Viatrix<small>Explore Beyond Limits</small></span>
+        </a>
+        <p>We help you discover Uganda with unforgettable travel experiences and exceptional service.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size:.85rem;color:rgba(251,245,234,0.65);">Subscribe for exclusive travel deals and updates.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Enter your email">
+          <button aria-label="Subscribe">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)){ items.forEach(el => el.classList.add('is-visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>

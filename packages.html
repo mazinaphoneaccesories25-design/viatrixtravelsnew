@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages — Viatrix Tours & Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#163C2E;
+    --forest-deep:#0F2B21;
+    --gold:#D9A054;
+    --cream:#FBF6EE;
+    --cream-card:#FFFFFF;
+    --charcoal:#26251F;
+    --muted:#7B7A72;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --shadow-card: 0 16px 34px -18px rgba(22,60,46,0.28);
+    --shadow-pop: 0 24px 60px -22px rgba(22,60,46,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;margin:0;color:var(--forest-deep);letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;}}
+
+  /* ---------- Nav — transparent, floats on the hero photo ---------- */
+  .site-nav{position:absolute;top:0;left:0;right:0;z-index:20;background:transparent;}
+  .site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:96px;}
+  .nav-logo{display:flex;align-items:center;gap:.5rem;}
+  .site-nav .nav-logo-img{display:block;width:104px;height:74px;object-fit:contain;}
+  .nav-logo .mark{font-size:1.1rem;color:#fff;}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:#fff;}
+  .nav-logo-text small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.68rem;color:rgba(255,255,255,0.75);letter-spacing:.02em;}
+  .nav-links{display:flex;gap:2.2rem;list-style:none;margin:0;padding:0;font-size:.92rem;font-weight:500;color:#fff;}
+  .nav-links a.is-current{border-bottom:2px solid var(--gold);padding-bottom:4px;}
+  .nav-right{display:flex;align-items:center;gap:.9rem;}
+  .nav-contact{background:#fff;color:var(--forest-deep);padding:.75rem 1.5rem;border-radius:999px;font-weight:600;font-size:.88rem;}
+  .nav-menu-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;}
+  @media (max-width:860px){.nav-links{display:none;}}
+
+  /* ---------- Page hero banner ---------- */
+  .page-hero{position:relative;}
+  .page-hero-frame{position:relative;overflow:hidden;height:min(52vh,460px);min-height:360px;}
+  .page-hero-frame img{width:100%;height:100%;object-fit:cover;}
+  .page-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,43,33,0.55) 0%, rgba(15,43,33,0.25) 45%, rgba(15,43,33,0.7) 100%);}
+  .page-hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 2.6rem;color:#fff;}
+  .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,0.75);margin-bottom:.8rem;}
+  .breadcrumb .sep{opacity:.6;}
+  .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.4vw,3.2rem);}
+  .page-hero p.sub{margin-top:.7rem;max-width:520px;color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.55;}
+
+  /* ---------- Filter row ---------- */
+  .filters{padding:2.4rem 0 1rem;}
+  .filter-row{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+  .filter-pills{display:flex;gap:.6rem;flex-wrap:wrap;}
+  .pill{
+    padding:.6rem 1.2rem;border-radius:999px;font-size:.86rem;font-weight:600;
+    background:var(--cream-card);color:var(--charcoal);box-shadow:var(--shadow-card);
+    transition:background .2s,color .2s;
+  }
+  .pill.is-active{background:var(--forest-deep);color:#fff;}
+  .result-count{font-size:.86rem;color:var(--muted);}
+
+  /* ---------- Package grid ---------- */
+  .pkg-listing{padding:2rem 0 5rem;}
+  .listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;}
+  .listing-card{
+    background:var(--cream-card);border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow-card);transition:transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s;
+    display:flex;flex-direction:column;
+  }
+  .listing-card:hover{transform:translateY(-8px);box-shadow:0 26px 44px -18px rgba(22,60,46,0.32);}
+  .listing-card .img-wrap{position:relative;aspect-ratio:5/4;overflow:hidden;}
+  .listing-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,.61,.36,1);}
+  .listing-card:hover img{transform:scale(1.07);}
+  .listing-tag{
+    position:absolute;top:.9rem;left:.9rem;background:rgba(255,255,255,0.94);
+    padding:.35rem .7rem;border-radius:999px;font-size:.72rem;font-weight:600;color:var(--forest-deep);
+  }
+  .listing-badge{
+    position:absolute;top:.9rem;right:.9rem;background:var(--gold);color:var(--forest-deep);
+    padding:.35rem .7rem;border-radius:999px;font-size:.72rem;font-weight:700;
+  }
+  .listing-body{padding:1.4rem 1.5rem 1.6rem;display:flex;flex-direction:column;flex:1;}
+  .listing-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.4rem;}
+  .listing-body h3{font-size:1.15rem;}
+  .listing-rating{display:flex;align-items:center;gap:.3rem;font-size:.85rem;font-weight:600;color:var(--gold);white-space:nowrap;}
+  .listing-body .loc{font-size:.82rem;color:var(--muted);margin-bottom:.7rem;display:flex;align-items:center;gap:.35rem;}
+  .listing-body p.desc{font-size:.9rem;line-height:1.55;color:rgba(38,37,31,0.75);margin-bottom:.9rem;}
+  .pkg-highlights{list-style:none;margin:0 0 1.1rem;padding:0;display:flex;flex-direction:column;gap:.4rem;}
+  .pkg-highlights li{font-size:.83rem;color:var(--charcoal);display:flex;align-items:flex-start;gap:.45rem;}
+  .pkg-highlights li::before{content:"✓";color:var(--forest);font-weight:700;flex-shrink:0;}
+  .listing-meta{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid #EFE9DC;margin-top:auto;}
+  .listing-price{font-size:.82rem;color:var(--muted);}
+  .listing-price b{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--forest-deep);font-weight:600;}
+  .listing-link{
+    display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.86rem;color:var(--forest);
+  }
+  .listing-link .arrow{transition:transform .25s cubic-bezier(.22,.61,.36,1);}
+  .listing-card:hover .listing-link .arrow{transform:translateX(4px);}
+  @media (max-width:980px){.listing-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.listing-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Custom trip CTA strip ---------- */
+  .custom-strip{padding:0 0 6rem;}
+  .custom-card{
+    background:var(--cream-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);
+    padding:2.2rem 2.6rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+  }
+  .custom-copy{max-width:420px;}
+  .custom-copy p.eyebrow{margin-bottom:.4rem;}
+  .custom-copy h3{font-size:1.4rem;margin-bottom:.5rem;}
+  .custom-copy p.sub{font-size:.92rem;color:var(--muted);line-height:1.55;}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:600;font-size:.93rem;transition:transform .25s, background .25s;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-dark{background:var(--forest-deep);color:#fff;}
+  .btn-dark:hover{background:#0a1f18;}
+  .btn-light{background:#fff;color:var(--forest-deep);}
+  .btn-light:hover{background:var(--cream);}
+
+  /* ---------- Bottom CTA banner (reused pattern) ---------- */
+  .promo{padding:0 0 6rem;}
+  .promo-card{position:relative;border-radius:24px;overflow:hidden;min-height:300px;display:flex;align-items:center;background:var(--forest-deep);}
+  .promo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;}
+  .promo-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(15,43,33,0.94) 0%, rgba(15,43,33,0.72) 42%, rgba(15,43,33,0.15) 85%);}
+  .promo-copy{position:relative;padding:3rem;max-width:480px;color:#fff;}
+  .promo-copy h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin:.6rem 0 .8rem;}
+  .promo-copy p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:1.6rem;}
+
+  /* ---------- Footer (shared) ---------- */
+  footer.site-footer{background:var(--forest-deep);color:rgba(251,245,234,0.7);padding:4.5rem 0 2rem;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(251,245,234,0.12);}
+  .footer-brand .nav-logo-text{color:#fff;}
+  .footer-brand .nav-logo-text small{color:rgba(251,245,234,0.55);}
+  .footer-brand p{margin-top:1rem;font-size:.88rem;line-height:1.6;max-width:260px;}
+  .footer-col h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;font-size:.92rem;margin-bottom:1.1rem;}
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;}
+  .footer-col a:hover{color:#fff;}
+  .newsletter-input{display:flex;margin-top:1rem;background:rgba(251,245,234,0.08);border-radius:999px;padding:.4rem;}
+  .newsletter-input input{flex:1;background:none;border:none;padding:.6rem 1rem;color:#fff;font-size:.85rem;}
+  .newsletter-input input::placeholder{color:rgba(251,245,234,0.5);}
+  .newsletter-input button{width:38px;height:38px;border-radius:50%;background:var(--gold);color:var(--forest-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.8rem;flex-wrap:wrap;gap:1rem;}
+  .social-icons{display:flex;gap:.8rem;}
+  .social-icons a{width:34px;height:34px;border-radius:50%;background:rgba(251,245,234,0.08);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+  @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE HERO — same transparent-nav-on-photo treatment as the
+     homepage/destinations, scaled down for an interior page
+     ============================================================ -->
+<header class="page-hero">
+  <div class="page-hero-frame">
+    <!-- DUMMY IMAGE — savanna sunset, Uganda — replace with licensed Viatrix photography -->
+    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=80"
+         alt="Safari vehicle on open savanna at golden hour in Uganda">
+    <div class="page-hero-scrim"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="wrap">
+        <a href="index.html" class="nav-logo">
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
+        </a>
+        <ul class="nav-links">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html" class="is-current">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="#" class="nav-contact">Contact Us</a>
+          <button class="nav-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero-copy">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span>Packages</span>
+      </div>
+      <h1>Safari Packages</h1>
+      <p class="sub">Ready-planned itineraries across Uganda — from short gorilla-trek getaways to two-week grand safaris, all fully guided and priced per person.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     FILTER ROW
+     ============================================================ -->
+<section class="filters">
+  <div class="wrap filter-row reveal">
+    <div class="filter-pills">
+      <button class="pill is-active">All</button>
+      <button class="pill">Short Getaways</button>
+      <button class="pill">Gorilla Trekking</button>
+      <button class="pill">Classic Safari</button>
+      <button class="pill">Grand Adventure</button>
+    </div>
+    <span class="result-count">6 packages</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     PACKAGE LISTING GRID
+     ============================================================ -->
+<section class="pkg-listing">
+  <div class="wrap listing-grid">
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — Bwindi gorilla, Uganda — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1672932238132-3cf53963c73c?auto=format&fit=crop&w=800&q=80" alt="Mountain gorilla resting in Bwindi Impenetrable Forest">
+        <span class="listing-tag">🌿 Gorilla Trekking</span>
+        <span class="listing-badge">3 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Bwindi Gorilla Escape</h3>
+          <span class="listing-rating">★ 4.9</span>
+        </div>
+        <p class="loc">📍 Bwindi Impenetrable Forest</p>
+        <p class="desc">A focused 3-day trip built around a single gorilla trekking permit, with two nights at a forest-edge lodge.</p>
+        <ul class="pkg-highlights">
+          <li>Gorilla trekking permit included</li>
+          <li>2 nights forest-edge lodge</li>
+          <li>All park fees & guide</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$1,150</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — Murchison Falls sunrise, Uganda — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1761681362936-180b3f6874af?auto=format&fit=crop&w=800&q=80" alt="Sunrise over Murchison Falls National Park, Uganda">
+        <span class="listing-tag">🦁 Classic Safari</span>
+        <span class="listing-badge">4 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Murchison Falls Explorer</h3>
+          <span class="listing-rating">★ 4.8</span>
+        </div>
+        <p class="loc">📍 Murchison Falls National Park</p>
+        <p class="desc">Game drives, a Nile boat cruise to the base of the falls, and two nights inside the park.</p>
+        <ul class="pkg-highlights">
+          <li>Game drives & boat cruise</li>
+          <li>2 nights riverside camp</li>
+          <li>Private 4x4 & driver-guide</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$980</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — Uganda kob antelope, Queen Elizabeth NP — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1663115991136-8008fb119be9?auto=format&fit=crop&w=800&q=80" alt="Uganda kob antelope in Queen Elizabeth National Park">
+        <span class="listing-tag">🦁 Classic Safari</span>
+        <span class="listing-badge">5 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Queen Elizabeth Wildlife Trail</h3>
+          <span class="listing-rating">★ 4.8</span>
+        </div>
+        <p class="loc">📍 Queen Elizabeth National Park</p>
+        <p class="desc">Tree-climbing lions, a Kazinga Channel cruise, and craters — a well-rounded 5-day wildlife circuit.</p>
+        <ul class="pkg-highlights">
+          <li>Kazinga Channel boat cruise</li>
+          <li>3 nights lodge accommodation</li>
+          <li>All meals & park entry fees</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$1,340</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — Lake Bunyonyi hills, Uganda — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1551357141-f73a8402ceb3?auto=format&fit=crop&w=800&q=80" alt="Terraced hills at Lake Bunyonyi, Uganda">
+        <span class="listing-tag">🏞️ Short Getaway</span>
+        <span class="listing-badge">2 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Lake Bunyonyi Retreat</h3>
+          <span class="listing-rating">★ 4.9</span>
+        </div>
+        <p class="loc">📍 Lake Bunyonyi</p>
+        <p class="desc">A quiet weekend escape — canoeing between islands, terraced hillsides, and a slow pace.</p>
+        <ul class="pkg-highlights">
+          <li>Island-hopping canoe trip</li>
+          <li>1 night lakeside cottage</li>
+          <li>Breakfast & dinner included</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$390</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — Kibale forest, Uganda — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1742328336691-c885d9e46df5?auto=format&fit=crop&w=800&q=80" alt="Forest canopy in Kibale National Park, Uganda">
+        <span class="listing-tag">🐒 Gorilla Trekking</span>
+        <span class="listing-badge">6 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Primates & Forests Circuit</h3>
+          <span class="listing-rating">★ 4.7</span>
+        </div>
+        <p class="loc">📍 Kibale Forest & Bwindi</p>
+        <p class="desc">Chimp tracking in Kibale followed by gorilla trekking in Bwindi — Uganda's two great primate parks in one trip.</p>
+        <ul class="pkg-highlights">
+          <li>Chimp & gorilla permits included</li>
+          <li>4 nights forest lodges</li>
+          <li>Inter-park transfers included</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$1,980</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="listing-card reveal">
+      <div class="img-wrap">
+        <!-- DUMMY IMAGE — elephants on savanna — replace with licensed Viatrix photography -->
+        <img src="https://images.unsplash.com/photo-1604162573378-2ac9fbb1b5b6?auto=format&fit=crop&w=800&q=80" alt="Elephants on open savanna">
+        <span class="listing-tag">🐘 Grand Adventure</span>
+        <span class="listing-badge">12 Days</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-top">
+          <h3>Grand Uganda Safari</h3>
+          <span class="listing-rating">★ 5.0</span>
+        </div>
+        <p class="loc">📍 Multi-park, nationwide</p>
+        <p class="desc">Our signature end-to-end journey — gorillas, chimps, big game, crater lakes and Kidepo's remote plains.</p>
+        <ul class="pkg-highlights">
+          <li>5 national parks, fully guided</li>
+          <li>11 nights, all lodging included</li>
+          <li>All permits, meals & transfers</li>
+        </ul>
+        <div class="listing-meta">
+          <span class="listing-price">From <b>$4,650</b> / person</span>
+          <a href="#" class="listing-link">View package <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CUSTOM TRIP STRIP
+     ============================================================ -->
+<section class="custom-strip">
+  <div class="wrap">
+    <div class="custom-card reveal">
+      <div class="custom-copy">
+        <p class="eyebrow">Don't See What You're After?</p>
+        <h3>We build custom itineraries too</h3>
+        <p class="sub">Tell us your dates, budget, and what you want to see — we'll put together a package built just for your group.</p>
+      </div>
+      <a href="custom-trip.html" class="btn btn-dark">Request a Custom Trip <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="promo">
+  <div class="wrap">
+    <div class="promo-card reveal">
+      <!-- DUMMY IMAGE — traveler on a game drive — replace with licensed Viatrix photography -->
+      <img src="https://images.unsplash.com/photo-1765706729858-76ae4bcd2f41?auto=format&fit=crop&w=1600&q=80" alt="Traveler on a safari game drive in Uganda">
+      <div class="promo-scrim"></div>
+      <div class="promo-copy">
+        <p class="eyebrow">Limited Time Offer</p>
+        <h2>Get up to <span style="color:var(--gold);">25% OFF</span> your next safari</h2>
+        <p>Book before the season ends and save on hand-planned itineraries across Uganda.</p>
+        <a href="#" class="btn btn-light">Explore Deals <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (shared with homepage)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="mark" style="color:#fff;">✈</span>
+          <span class="nav-logo-text">Viatrix<small>Explore Beyond Limits</small></span>
+        </a>
+        <p>We help you discover Uganda with unforgettable travel experiences and exceptional service.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p style="font-size:.85rem;color:rgba(251,245,234,0.65);">Subscribe for exclusive travel deals and updates.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Enter your email">
+          <button aria-label="Subscribe">→</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)){ items.forEach(el => el.classList.add('is-visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){ entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(el => io.observe(el));
+  })();
+
+  // Filter pills — visual state only (wire up to real filtering logic later)
+  document.querySelectorAll('.pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill').forEach(p => p.classList.remove('is-active'));
+      btn.classList.add('is-active');
+    });
+  });
+</script>
+
+</body>
+</html>

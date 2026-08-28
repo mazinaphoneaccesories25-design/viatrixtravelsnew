@@ -198,6 +198,30 @@
   @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
+<style>
+  /* ---------- Portrait / mobile navigation ---------- */
+  .nav-menu-btn{display:none;}
+  @media (max-width:860px){
+    .site-nav .wrap{position:relative;}
+    .nav-menu-btn{display:flex;}
+    .site-nav .nav-links{
+      position:absolute;top:84px;left:6vw;right:6vw;
+      display:none;flex-direction:column;gap:0;
+      padding:.65rem;background:var(--forest-deep);
+      border:1px solid rgba(255,255,255,.14);border-radius:16px;
+      box-shadow:0 18px 44px rgba(15,43,33,.3);
+    }
+    .site-nav.is-open .nav-links{display:flex;}
+    .site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px;}
+    .site-nav .nav-links a:hover,.site-nav .nav-links a:focus-visible{background:rgba(255,255,255,.1);}
+  }
+  @media (max-width:560px){
+    .site-nav .wrap{height:82px;}
+    .site-nav .nav-logo-img{width:88px;height:64px;}
+    .nav-contact{display:none;}
+    .site-nav .nav-links{top:74px;}
+  }
+</style>
 </head>
 <body>
 
@@ -540,5 +564,39 @@
   })();
 </script>
 
+<script>
+  (function(){
+    const nav = document.querySelector('.site-nav');
+    const button = nav && nav.querySelector('.nav-menu-btn');
+    const links = nav && nav.querySelector('.nav-links');
+    if (!nav || !button || !links) return;
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'primary-nav-links');
+    links.id = 'primary-nav-links';
+    function closeMenu(){
+      nav.classList.remove('is-open');
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = '☰';
+      button.setAttribute('aria-label', 'Open menu');
+    }
+    button.addEventListener('click', function(){
+      const opening = !nav.classList.contains('is-open');
+      nav.classList.toggle('is-open', opening);
+      button.setAttribute('aria-expanded', String(opening));
+      button.textContent = opening ? '✕' : '☰';
+      button.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
+    });
+    links.addEventListener('click', closeMenu);
+    document.addEventListener('click', function(event){
+      if (!nav.contains(event.target)) closeMenu();
+    });
+    document.addEventListener('keydown', function(event){
+      if (event.key === 'Escape'){ closeMenu(); button.focus(); }
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth > 860) closeMenu();
+    });
+  })();
+</script>
 </body>
 </html>

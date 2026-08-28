@@ -53,7 +53,7 @@
 
   /* ---------- Page hero banner ---------- */
   .page-hero{position:relative;}
-  .page-hero-frame{position:relative;overflow:hidden;height:min(52vh,460px);min-height:360px;}
+  .page-hero-frame{position:relative;overflow:hidden;height:min(70vh,600px);min-height:500px;}
   .page-hero-frame img{width:100%;height:100%;object-fit:cover;}
   .page-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,43,33,0.55) 0%, rgba(15,43,33,0.25) 45%, rgba(15,43,33,0.7) 100%);}
   .page-hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 2.6rem;color:#fff;}
@@ -158,6 +158,7 @@
   footer.site-footer{background:var(--forest-deep);color:rgba(251,245,234,0.7);padding:4.5rem 0 2rem;}
   .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(251,245,234,0.12);}
   .footer-brand .nav-logo-text{color:#fff;}
+  .footer-brand .nav-logo-img{display:block;width:120px;height:84px;object-fit:contain;}
   .footer-brand .nav-logo-text small{color:rgba(251,245,234,0.55);}
   .footer-brand p{margin-top:1rem;font-size:.88rem;line-height:1.6;max-width:260px;}
   .footer-col h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;font-size:.92rem;margin-bottom:1.1rem;}
@@ -173,7 +174,11 @@
   @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
-</head>
+<!-- Portrait / mobile navigation restored -->
+<style>
+.nav-menu-btn{display:none}
+@media(max-width:860px){.site-nav .wrap{position:relative}.nav-menu-btn{display:flex}.site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.65rem;background:var(--forest-deep);border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:0 18px 44px rgba(15,43,33,.3)}.site-nav.is-open .nav-links{display:flex}.site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px}}@media(max-width:560px){.site-nav .wrap{height:82px}.site-nav .nav-logo-img{width:88px;height:64px}.nav-contact{display:none}.site-nav .nav-links{top:74px}}
+</style></head>
 <body>
 
 <!-- ============================================================
@@ -183,7 +188,7 @@
 <header class="page-hero">
   <div class="page-hero-frame">
     <!-- Viatrix travel photography, also used elsewhere on the site -->
-    <img src="images%201/IMG_5644.JPG" alt="Uganda travel landscape">
+    <img src="IMG_5644.JPG" alt="Uganda travel landscape">
     <div class="page-hero-scrim"></div>
 
     <nav class="site-nav" aria-label="Primary">
@@ -199,7 +204,7 @@
           <li><a href="about-us.html" class="is-current">About Us</a></li>
         </ul>
         <div class="nav-right">
-          <a href="#" class="nav-contact">Contact Us</a>
+          <a href="contact-us.html" class="nav-contact">Contact Us</a>
           <button class="nav-menu-btn" aria-label="Open menu">☰</button>
         </div>
       </div>
@@ -210,7 +215,7 @@
         <a href="index.html">Home</a><span class="sep">/</span><span>About Us</span>
       </div>
       <h1>About Viatrix</h1>
-      <p class="sub">We're a Uganda-based team that plans trips the way we'd want them planned for us — honestly, carefully, and led by people who know this country.</p>
+      <p class="sub">We don’t just take you places. We create unforgettable journeys.<br><br>At VIATRIX Tours &amp; Travel, we make travel simple, exciting, and memorable. From dream holidays to business trips and thrilling adventures, we handle the details while you enjoy the journey.<br><br>Dream. Discover. Travel. Experience VIATRIX.<br><br>VIATRIX Tours &amp; Travel: Your Journey, Our Passion.</p>
     </div>
   </div>
 </header>
@@ -231,12 +236,16 @@
     </div>
     <div class="story-copy reveal">
       <p class="eyebrow">Our Story</p>
-      <h2>Started by guides, not marketers</h2>
-      <p class="lead">Viatrix began with a handful of local guides who kept hearing the same thing from travelers: the trip they'd booked online looked nothing like the one they got. So we built the agency we wished existed — one where the person planning your itinerary has actually stood where you're going.</p>
-      <p class="lead">Every route we sell has been driven, every lodge we recommend has been slept in, and every guide on our roster is someone we'd send our own family with. That hasn't changed as we've grown.</p>
+      <h2>The VIATRIX Story</h2>
+      <p class="lead">Every great journey begins with a dream. Ours began with a passion to make the world easier for you to explore.</p>
+      <p class="lead">VIATRIX Tours &amp; Travel was created with one purpose: to turn travel plans into extraordinary experiences.</p>
+      <p class="lead">We understand that travelling is not just about reaching a destination. It’s about the excitement of discovering somewhere new, the people you meet, the moments you capture, and the memories you bring home.</p>
+      <p class="lead">That’s why at VIATRIX, we go beyond simply arranging trips. We listen, we plan, we guide, and we take care of the details, giving you the freedom to travel with confidence and enjoy every moment.</p>
+      <p class="lead">From unforgettable getaways to exciting adventures, family holidays, business travel, and tailor made experiences, we’re here to make your journey smooth, memorable, and worth every mile.</p>
+      <p class="lead">Your destination may be somewhere on the map, but your experience is our masterpiece.</p>
       <div class="story-signature">
-        <span class="mark">Viatrix</span>
-        <span class="role">Uganda-based · Independently run</span>
+        <span class="mark">VIATRIX Tours &amp; Travel</span>
+        <span class="role">We don’t just plan journeys. We create stories worth telling.</span>
       </div>
     </div>
   </div>
@@ -353,7 +362,6 @@
       <p class="trust-copy">Trusted by travelers planning their journey across East Africa</p>
       <div class="trust-list">
         <span>Uganda Tourism Board</span>
-        <span>AUTO Certified</span>
         <span>IATA Registered</span>
         <span>East Africa Travel Assoc.</span>
       </div>
@@ -388,8 +396,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <span class="mark" style="color:#fff;">✈</span>
-          <span class="nav-logo-text">Viatrix<small>Explore Beyond Limits</small></span>
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
         </a>
         <p>We help you discover Uganda with unforgettable travel experiences and exceptional service.</p>
       </div>
@@ -409,17 +416,10 @@
           <li><a href="#">FAQs</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p style="font-size:.85rem;color:rgba(251,245,234,0.65);">Subscribe for exclusive travel deals and updates.</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="Enter your email">
-          <button aria-label="Subscribe">→</button>
-        </div>
-      </div>
+      <div class="footer-col"><h4>Contact Us</h4><ul><li>Email: <a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li><li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li><li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li><li>WhatsApp: <a href="https://wa.me/256704696480">0704 696 480</a></li><li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr">Instagram</a></li><li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE">TikTok</a></li><li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
@@ -445,5 +445,7 @@
   })();
 </script>
 
-</body>
+<script>
+(function(){const nav=document.querySelector('.site-nav'),button=nav&&nav.querySelector('.nav-menu-btn'),links=nav&&nav.querySelector('.nav-links');if(!nav||!button||!links)return;button.setAttribute('aria-expanded','false');function close(){nav.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.textContent='☰'}button.addEventListener('click',()=>{const open=!nav.classList.contains('is-open');nav.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.textContent=open?'✕':'☰'});links.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+</script></body>
 </html>

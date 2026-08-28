@@ -183,6 +183,7 @@
   footer.site-footer{background:var(--forest-deep);color:rgba(251,245,234,0.7);padding:4.5rem 0 2rem;}
   .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(251,245,234,0.12);}
   .footer-brand .nav-logo-text{color:#fff;}
+  .footer-brand .nav-logo-img{display:block;width:120px;height:84px;object-fit:contain;}
   .footer-brand .nav-logo-text small{color:rgba(251,245,234,0.55);}
   .footer-brand p{margin-top:1rem;font-size:.88rem;line-height:1.6;max-width:260px;}
   .footer-col h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;font-size:.92rem;margin-bottom:1.1rem;}
@@ -198,31 +199,11 @@
   @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
   @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 </style>
+<!-- Portrait / mobile navigation restored -->
 <style>
-  /* ---------- Portrait / mobile navigation ---------- */
-  .nav-menu-btn{display:none;}
-  @media (max-width:860px){
-    .site-nav .wrap{position:relative;}
-    .nav-menu-btn{display:flex;}
-    .site-nav .nav-links{
-      position:absolute;top:84px;left:6vw;right:6vw;
-      display:none;flex-direction:column;gap:0;
-      padding:.65rem;background:var(--forest-deep);
-      border:1px solid rgba(255,255,255,.14);border-radius:16px;
-      box-shadow:0 18px 44px rgba(15,43,33,.3);
-    }
-    .site-nav.is-open .nav-links{display:flex;}
-    .site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px;}
-    .site-nav .nav-links a:hover,.site-nav .nav-links a:focus-visible{background:rgba(255,255,255,.1);}
-  }
-  @media (max-width:560px){
-    .site-nav .wrap{height:82px;}
-    .site-nav .nav-logo-img{width:88px;height:64px;}
-    .nav-contact{display:none;}
-    .site-nav .nav-links{top:74px;}
-  }
-</style>
-</head>
+.nav-menu-btn{display:none}
+@media(max-width:860px){.site-nav .wrap{position:relative}.nav-menu-btn{display:flex}.site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.65rem;background:var(--forest-deep);border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:0 18px 44px rgba(15,43,33,.3)}.site-nav.is-open .nav-links{display:flex}.site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px}}@media(max-width:560px){.site-nav .wrap{height:82px}.site-nav .nav-logo-img{width:88px;height:64px}.nav-contact{display:none}.site-nav .nav-links{top:74px}}
+</style></head>
 <body>
 
 <!-- ============================================================
@@ -235,22 +216,39 @@
   <div class="hero-frame">
     <div class="hero-slides" aria-label="Uganda travel photography slideshow">
       <img class="hero-slide is-active" src="IMG_5551.JPG" alt="Uganda travel landscape" fetchpriority="high">
-      <img class="hero-slide" src="IMG_5555.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5562.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5572.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5576.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5579.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5590.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5603.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5610.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5644.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5677.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5683.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5686.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5690.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5716.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5720.JPG" alt="Uganda travel landscape">
-      <img class="hero-slide" src="IMG_5723.JPG" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-01.jpg" loading="lazy" alt="Viatrix guests gathered for an outdoor celebration">
+      <img class="hero-slide" src="IMG_5555.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-02.jpg" loading="lazy" alt="Viatrix travelers enjoying a waterfall adventure">
+      <img class="hero-slide" src="IMG_5562.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-03.jpg" loading="lazy" alt="Panoramic view of Kampala city">
+      <img class="hero-slide" src="IMG_5572.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-04.jpg" loading="lazy" alt="Traveler displaying artwork during a Viatrix experience">
+      <img class="hero-slide" src="IMG_5576.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-05.jpg" loading="lazy" alt="Viatrix group enjoying a paintball adventure">
+      <img class="hero-slide" src="IMG_5579.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-06.jpg" loading="lazy" alt="Travelers enjoying outdoor team activities">
+      <img class="hero-slide" src="IMG_5590.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-07.jpg" loading="lazy" alt="Viatrix travelers beside the water">
+      <img class="hero-slide" src="IMG_5603.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-08.jpg" loading="lazy" alt="Viatrix guests preparing to travel beside a safari vehicle">
+      <img class="hero-slide" src="IMG_5610.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-09.jpg" loading="lazy" alt="Viatrix tour vehicle traveling through a mountain landscape">
+      <img class="hero-slide" src="IMG_5644.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-10.jpg" loading="lazy" alt="Viatrix travel group celebrating together">
+      <img class="hero-slide" src="IMG_5677.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-11.jpg" loading="lazy" alt="Viatrix team and guests after outdoor activities">
+      <img class="hero-slide" src="IMG_5683.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-12.jpg" loading="lazy" alt="Large Viatrix group gathered beside a swimming pool">
+      <img class="hero-slide" src="IMG_5686.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-13.jpg" loading="lazy" alt="Viatrix guests smiling during an outdoor event">
+      <img class="hero-slide" src="IMG_5690.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-14.jpg" loading="lazy" alt="Tour buses ready to transport Viatrix travelers">
+      <img class="hero-slide" src="IMG_5716.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-15.jpg" loading="lazy" alt="Viatrix travelers celebrating in front of a tour coach">
+      <img class="hero-slide" src="IMG_5720.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-16.jpg" loading="lazy" alt="Viatrix guests walking through a green forest setting">
+      <img class="hero-slide" src="IMG_5723.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="company-17.jpg" loading="lazy" alt="Viatrix Tours and Travel sign beside the water">
     </div>
     <div class="hero-scrim"></div>
 
@@ -267,7 +265,7 @@
           <li><a href="about-us.html">About Us</a></li>
         </ul>
         <div class="nav-right">
-          <a href="#" class="nav-contact">Contact Us</a>
+          <a href="contact-us.html" class="nav-contact">Contact Us</a>
           <button class="nav-menu-btn" aria-label="Open menu">☰</button>
         </div>
       </div>
@@ -287,7 +285,7 @@
 </header>
 
 <div class="wrap">
-        <form class="search-bar reveal" id="trip-request-form" data-recipient="ndyangaisaac5@gmail.com">
+  <form class="search-bar reveal" id="trip-request-form" data-recipient="viatrixtoursandtravelco@gmial.com">
     <div class="search-field">
       <span class="ico">📍</span>
       <label class="lbl"><b>Where to?</b><input name="destination" type="text" placeholder="Search destinations" required></label>
@@ -432,7 +430,6 @@
       <p class="trust-copy">Trusted by travelers planning their journey across East Africa</p>
       <div class="trust-list">
         <span>Uganda Tourism Board</span>
-        <span>AUTO Certified</span>
         <span>IATA Registered</span>
         <span>East Africa Travel Assoc.</span>
       </div>
@@ -448,8 +445,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">
-          <span class="mark" style="color:#fff;">✈</span>
-          <span class="nav-logo-text">Viatrix<small>Explore Beyond Limits</small></span>
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
         </a>
         <p>We help you discover Uganda with unforgettable travel experiences and exceptional service.</p>
       </div>
@@ -469,24 +465,29 @@
           <li><a href="#">FAQs</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p style="font-size:.85rem;color:rgba(251,245,234,0.65);">Subscribe for exclusive travel deals and updates.</p>
-        <div class="newsletter-input">
-          <input type="email" placeholder="Enter your email">
-          <button aria-label="Subscribe">→</button>
-        </div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>Email: <a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li>
+          <li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li>
+          <li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li>
+          <li>WhatsApp: <a href="https://wa.me/256704696480">0704 696 480</a></li>
+          <li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+          <li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
       <div class="social-icons">
         <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">◎</a>
-        <a href="#" aria-label="X">✕</a>
+        <a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+        <a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+        <a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer" aria-label="X">✕</a>
       </div>
     </div>
   </div>
@@ -565,38 +566,6 @@
 </script>
 
 <script>
-  (function(){
-    const nav = document.querySelector('.site-nav');
-    const button = nav && nav.querySelector('.nav-menu-btn');
-    const links = nav && nav.querySelector('.nav-links');
-    if (!nav || !button || !links) return;
-    button.setAttribute('aria-expanded', 'false');
-    button.setAttribute('aria-controls', 'primary-nav-links');
-    links.id = 'primary-nav-links';
-    function closeMenu(){
-      nav.classList.remove('is-open');
-      button.setAttribute('aria-expanded', 'false');
-      button.textContent = '☰';
-      button.setAttribute('aria-label', 'Open menu');
-    }
-    button.addEventListener('click', function(){
-      const opening = !nav.classList.contains('is-open');
-      nav.classList.toggle('is-open', opening);
-      button.setAttribute('aria-expanded', String(opening));
-      button.textContent = opening ? '✕' : '☰';
-      button.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
-    });
-    links.addEventListener('click', closeMenu);
-    document.addEventListener('click', function(event){
-      if (!nav.contains(event.target)) closeMenu();
-    });
-    document.addEventListener('keydown', function(event){
-      if (event.key === 'Escape'){ closeMenu(); button.focus(); }
-    });
-    window.addEventListener('resize', function(){
-      if (window.innerWidth > 860) closeMenu();
-    });
-  })();
-</script>
-</body>
+(function(){const nav=document.querySelector('.site-nav'),button=nav&&nav.querySelector('.nav-menu-btn'),links=nav&&nav.querySelector('.nav-links');if(!nav||!button||!links)return;button.setAttribute('aria-expanded','false');function close(){nav.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.textContent='☰'}button.addEventListener('click',()=>{const open=!nav.classList.contains('is-open');nav.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.textContent=open?'✕':'☰'});links.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+</script></body>
 </html>

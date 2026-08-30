@@ -115,21 +115,19 @@
 
   /* ---------- Team grid ---------- */
   .team{padding:5rem 0 2rem;}
-  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;}
+  .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;max-width:760px;margin:0 auto;}
   .team-card{
     background:var(--cream-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);
     padding:2.2rem 1.5rem;text-align:center;transition:transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;
   }
   .team-card:hover{transform:translateY(-6px);box-shadow:0 26px 44px -18px rgba(22,60,46,0.32);}
   .team-avatar{
-    width:78px;height:78px;border-radius:50%;margin:0 auto 1.2rem;background:var(--forest-deep);
-    color:var(--gold);display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;border:3px solid var(--gold);
+    width:150px;height:150px;border-radius:50%;margin:0 auto 1.2rem;background:var(--forest-deep);
+    object-fit:cover;object-position:center;border:3px solid var(--gold);
   }
   .team-card h3{font-size:1.05rem;}
   .team-role{margin-top:.3rem;font-size:.74rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);}
   .team-bio{margin-top:.9rem;font-size:.85rem;line-height:1.55;color:var(--muted);}
-  @media (max-width:980px){.team-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:560px){.team-grid{grid-template-columns:1fr;}}
 
   /* ---------- Trust strip (shared with homepage) ---------- */
@@ -321,31 +319,16 @@
       <h2>The people behind your trip</h2>
       <p>A small team, so the person who plans your itinerary is often the same one you'll speak to on the phone.</p>
     </div>
-    <!-- PLACEHOLDER TEAM MEMBERS — replace with real names, roles, bios, and photos -->
     <div class="team-grid">
       <div class="team-card reveal">
-        <div class="team-avatar">AN</div>
-        <h3>Aisha Nakato</h3>
-        <p class="team-role">Founder &amp; Lead Guide</p>
-        <p class="team-bio">Started Viatrix after eight years guiding gorilla treks in Bwindi. Still leads trips herself most months.</p>
+        <img class="team-avatar" src="CEO.jpeg" loading="lazy" alt="Nababi Christine, CEO of Viatrix Tours and Travel">
+        <h3>Nababi Christine</h3>
+        <p class="team-role">CEO, Viatrix Tours &amp; Travel</p>
       </div>
       <div class="team-card reveal">
-        <div class="team-avatar">BO</div>
-        <h3>Brian Okello</h3>
-        <p class="team-role">Head of Operations</p>
-        <p class="team-bio">Keeps permits, transport, and lodges running on schedule so your trip never feels like logistics.</p>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-avatar">GA</div>
-        <h3>Grace Auma</h3>
-        <p class="team-role">Travel Consultant</p>
-        <p class="team-bio">Usually the first person you'll talk to — matches travelers to the right park, pace, and price.</p>
-      </div>
-      <div class="team-card reveal">
-        <div class="team-avatar">MT</div>
-        <h3>Moses Tumwine</h3>
-        <p class="team-role">Senior Safari Guide</p>
-        <p class="team-bio">Fifteen years in the field across Murchison Falls and Queen Elizabeth National Park.</p>
+        <img class="team-avatar" src="cc.jpeg" loading="lazy" alt="Nakasujja Margret, Manager of Customer Care at Viatrix Tours and Travel">
+        <h3>Nakasujja Margret</h3>
+        <p class="team-role">Manager, Customer Care</p>
       </div>
     </div>
   </div>

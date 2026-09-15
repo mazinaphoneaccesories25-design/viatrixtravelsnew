@@ -23,7 +23,7 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:16px;}
   h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;margin:0;color:var(--forest-deep);letter-spacing:-0.01em;}
   p{margin:0;}
   a{color:inherit;text-decoration:none;}
@@ -49,7 +49,10 @@
   .nav-right{display:flex;align-items:center;gap:.9rem;}
   .nav-contact{background:#fff;color:var(--forest-deep);padding:.75rem 1.5rem;border-radius:999px;font-weight:600;font-size:.88rem;}
   .nav-menu-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;}
-  @media (max-width:860px){.nav-links{display:none;}}
+  @media (max-width:860px){
+    .wrap{padding:0 1.1rem;}
+    .nav-links{display:none;}
+  }
 
   /* ---------- Page hero banner ---------- */
   .page-hero{position:relative;}
@@ -323,13 +326,13 @@
   <div class="wrap">
     <div class="promo-card reveal">
       <!-- DUMMY IMAGE — traveler on a game drive — replace with licensed Viatrix photography -->
-      <img src="https://images.unsplash.com/photo-1765706729858-76ae4bcd2f41?auto=format&fit=crop&w=1600&q=80" alt="Traveler on a safari game drive in Uganda">
+      <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1600&q=80" alt="Sunlit African landscape with acacia trees">
       <div class="promo-scrim"></div>
       <div class="promo-copy">
         <p class="eyebrow">Have Questions?</p>
         <h2>Let's plan your trip together</h2>
         <p>Reach out and a real person on our team will help you build the right itinerary — no bots, no templates.</p>
-        <a href="#" class="btn btn-light">Talk to a Travel Expert <span>→</span></a>
+        <a href="contact-us.html?enquiry=travel-expert" class="btn btn-light">Talk to a Travel Expert <span>→</span></a>
       </div>
     </div>
   </div>
@@ -367,7 +370,7 @@
           <li><a href="contact-us.html">Contact Us</a></li>
         </ul>
       </div>
-      <div class="footer-col"><h4>Contact Us</h4><ul><li>Email: <a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li><li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li><li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li><li>WhatsApp: <a href="https://wa.me/256704696480">0704 696 480</a></li><li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr">Instagram</a></li><li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE">TikTok</a></li><li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li></ul></div>
+      <div class="footer-col"><h4>Contact Us</h4><ul><li>Email: <a href="mailto:viatrixtoursandtravelco@gmail.com">viatrixtoursandtravelco@gmail.com</a></li><li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li><li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li><li>WhatsApp: <a href="https://wa.me/256704696480">+256 704 696 480</a></li><li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr">Instagram</a></li><li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE">TikTok</a></li><li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
@@ -394,6 +397,27 @@
 </script>
 
 <script>
-(function(){const nav=document.querySelector('.site-nav'),button=nav&&nav.querySelector('.nav-menu-btn'),links=nav&&nav.querySelector('.nav-links');if(!nav||!button||!links)return;button.setAttribute('aria-expanded','false');function close(){nav.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.textContent='☰'}button.addEventListener('click',()=>{const open=!nav.classList.contains('is-open');nav.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.textContent=open?'✕':'☰'});links.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+(function(){
+  const nav=document.querySelector('.site-nav');
+  const button=nav&&nav.querySelector('.nav-menu-btn');
+  const links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!button||!links)return;
+
+  function setMenuState(open){
+    nav.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    button.textContent = open ? '✕' : '☰';
+  }
+
+  function closeMenu(){ setMenuState(false); }
+
+  button.setAttribute('aria-expanded','false');
+  button.textContent='☰';
+  button.addEventListener('click',()=>setMenuState(!nav.classList.contains('is-open')));
+  links.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (event)=>{ if (event.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', ()=>{ if (window.innerWidth > 860) closeMenu(); });
+})();
 </script></body>
 </html>

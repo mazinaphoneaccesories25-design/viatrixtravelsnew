@@ -27,6 +27,7 @@
     margin:0;background:var(--cream);color:var(--charcoal);
     font-family:'Inter',system-ui,sans-serif;
     -webkit-font-smoothing:antialiased;
+    font-size:16px;
   }
   h1,h2,h3,h4{
     font-family:'Fraunces',serif;font-weight:600;line-height:1.05;
@@ -58,7 +59,10 @@
   .nav-right{display:flex;align-items:center;gap:.9rem;}
   .nav-contact{background:#fff;color:var(--forest-deep);padding:.75rem 1.5rem;border-radius:999px;font-weight:600;font-size:.88rem;}
   .nav-menu-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;}
-  @media (max-width:860px){.nav-links{display:none;}}
+  @media (max-width:860px){
+    .wrap{padding:0 1.1rem;}
+    .nav-links{display:none;}
+  }
 
   /* ---------- Hero ---------- */
   /* Full-bleed to the top of the viewport — no rounded frame, no
@@ -206,7 +210,15 @@
 <!-- Portrait / mobile navigation restored -->
 <style>
 .nav-menu-btn{display:none}
-@media(max-width:860px){.site-nav .wrap{position:relative}.nav-menu-btn{display:flex}.site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.65rem;background:var(--forest-deep);border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:0 18px 44px rgba(15,43,33,.3)}.site-nav.is-open .nav-links{display:flex}.site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px}}@media(max-width:560px){.site-nav .wrap{height:82px}.site-nav .nav-logo-img{width:88px;height:64px}.nav-contact{display:none}.site-nav .nav-links{top:74px}}
+@media(max-width:860px){
+  .site-nav .wrap{position:relative;align-items:center;}
+  .nav-menu-btn{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.04);color:#fff;}
+  .site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.7rem;background:rgba(15,43,33,.98);border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:0 18px 44px rgba(15,43,33,.3);z-index:30;}
+  .site-nav .nav-links a{display:block;padding:.9rem 1rem;border-radius:10px;color:#fff;}
+  .site-nav .nav-links a:hover,.site-nav .nav-links a:focus-visible{background:rgba(255,255,255,.06);}
+  .site-nav.is-open .nav-links{display:flex;}
+}
+@media(max-width:560px){.site-nav .wrap{height:82px}.site-nav .nav-logo-img{width:88px;height:64px}.nav-contact{display:none}.site-nav .nav-links{top:74px}}
 </style></head>
 <body>
 
@@ -276,17 +288,17 @@
       <div class="hero-kicker">It's time to <span class="btn-icon">✈</span></div>
       <h1>Explore<br>the <span class="accent">Pearl of Africa</span></h1>
       <p class="sub">Discover breathtaking landscapes, unforgettable wildlife, and memories that last a lifetime — across Uganda.</p>
-      <a href="#" class="btn btn-dark">Explore Now <span>→</span></a>
+      <a href="destinations.html" class="btn btn-dark">Explore Now <span>→</span></a>
     </div>
-    <div class="scroll-hint">
+    <a href="#destinations" class="scroll-hint" aria-label="Scroll down to destinations">
       Scroll Down
       <div class="circle">↓</div>
-    </div>
+    </a>
   </div>
 </header>
 
 <div class="wrap">
-  <form class="search-bar reveal" id="trip-request-form" data-recipient="viatrixtoursandtravelco@gmial.com">
+  <form class="search-bar reveal" id="trip-request-form" data-recipient="viatrixtoursandtravelco@gmail.com">
     <div class="search-field">
       <span class="ico">📍</span>
       <label class="lbl"><b>Where to?</b><input name="destination" type="text" placeholder="Search destinations" required></label>
@@ -353,7 +365,7 @@
     </div>
 
     <div class="dest-grid">
-      <article class="dest-card reveal">
+      <a href="packages.html?destination=Bwindi" class="dest-card reveal" aria-label="View Bwindi packages">
         <!-- DUMMY IMAGE — Bwindi gorilla, Uganda — replace with licensed Viatrix photography -->
         <img src="https://images.unsplash.com/photo-1672932238132-3cf53963c73c?auto=format&fit=crop&w=700&q=80" alt="Mountain gorilla in Bwindi Impenetrable Forest">
         <div class="dest-scrim"></div>
@@ -363,9 +375,9 @@
           <p>Home to half the world's remaining mountain gorillas.</p>
           <span class="dest-rating">&#9733; 4.9 (860)</span>
         </div>
-      </article>
+      </a>
 
-      <article class="dest-card reveal">
+      <a href="packages.html?destination=Murchison" class="dest-card reveal" aria-label="View Murchison Falls packages">
         <!-- DUMMY IMAGE — Murchison Falls, Uganda — replace with licensed Viatrix photography -->
         <img src="https://images.unsplash.com/photo-1761681362936-180b3f6874af?auto=format&fit=crop&w=700&q=80" alt="Sunrise landscape over Murchison Falls National Park, Uganda">
         <div class="dest-scrim"></div>
@@ -375,9 +387,9 @@
           <p>Where the Nile roars through a narrow rocky gorge.</p>
           <span class="dest-rating">&#9733; 4.8 (1,120)</span>
         </div>
-      </article>
+      </a>
 
-      <article class="dest-card reveal">
+      <a href="packages.html?destination=Lake+Bunyonyi" class="dest-card reveal" aria-label="View Lake Bunyonyi packages">
         <!-- DUMMY IMAGE — Lake Bunyonyi hills, Uganda — replace with licensed Viatrix photography -->
         <img src="https://images.unsplash.com/photo-1551357141-f73a8402ceb3?auto=format&fit=crop&w=700&q=80" alt="Rolling green hills at Lake Bunyonyi, Uganda">
         <div class="dest-scrim"></div>
@@ -387,9 +399,9 @@
           <p>Terraced hills and still water in Uganda's southwest.</p>
           <span class="dest-rating">&#9733; 4.9 (740)</span>
         </div>
-      </article>
+      </a>
 
-      <article class="dest-card reveal">
+      <a href="packages.html?destination=Kibale" class="dest-card reveal" aria-label="View Kibale Forest packages">
         <!-- DUMMY IMAGE — Kibale forest, Uganda — replace with licensed Viatrix photography -->
         <img src="https://images.unsplash.com/photo-1742328336691-c885d9e46df5?auto=format&fit=crop&w=700&q=80" alt="Forest canopy in Kibale National Park, Uganda">
         <div class="dest-scrim"></div>
@@ -399,7 +411,7 @@
           <p>Uganda's primate capital, thick with rainforest trails.</p>
           <span class="dest-rating">&#9733; 4.7 (610)</span>
         </div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
@@ -411,13 +423,13 @@
   <div class="wrap">
     <div class="promo-card reveal">
       <!-- DUMMY IMAGE — traveler on a game drive — replace with licensed Viatrix photography -->
-      <img src="https://images.unsplash.com/photo-1765706729858-76ae4bcd2f41?auto=format&fit=crop&w=1600&q=80" alt="Traveler on a safari game drive in Uganda">
+      <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1600&q=80" alt="Elephants walking across the savanna in Uganda">
       <div class="promo-scrim"></div>
       <div class="promo-copy">
         <p class="eyebrow">Limited Time Offer</p>
         <h2>Get up to <span class="num">25% OFF</span> your next safari</h2>
         <p>Book before the season ends and save on hand-planned itineraries across Uganda.</p>
-        <a href="#" class="btn btn-light">Explore Deals <span>→</span></a>
+        <a href="packages.html" class="btn btn-light">Explore Deals <span>→</span></a>
       </div>
     </div>
   </div>
@@ -474,10 +486,10 @@
       <div class="footer-col">
         <h4>Contact Us</h4>
         <ul>
-          <li>Email: <a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li>
+          <li>Email: <a href="mailto:viatrixtoursandtravelco@gmail.com">viatrixtoursandtravelco@gmail.com</a></li>
           <li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li>
           <li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li>
-          <li>WhatsApp: <a href="https://wa.me/256704696480">0704 696 480</a></li>
+          <li>WhatsApp: <a href="https://wa.me/256704696480">+256 704 696 480</a></li>
           <li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE" target="_blank" rel="noopener noreferrer">TikTok</a></li>
           <li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li>
@@ -586,6 +598,27 @@
 </script>
 
 <script>
-(function(){const nav=document.querySelector('.site-nav'),button=nav&&nav.querySelector('.nav-menu-btn'),links=nav&&nav.querySelector('.nav-links');if(!nav||!button||!links)return;button.setAttribute('aria-expanded','false');function close(){nav.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.textContent='☰'}button.addEventListener('click',()=>{const open=!nav.classList.contains('is-open');nav.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.textContent=open?'✕':'☰'});links.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+(function(){
+  const nav=document.querySelector('.site-nav');
+  const button=nav&&nav.querySelector('.nav-menu-btn');
+  const links=nav&&nav.querySelector('.nav-links');
+  if(!nav||!button||!links)return;
+
+  function setMenuState(open){
+    nav.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    button.textContent = open ? '✕' : '☰';
+  }
+
+  function closeMenu(){ setMenuState(false); }
+
+  button.setAttribute('aria-expanded','false');
+  button.textContent='☰';
+  button.addEventListener('click',()=>setMenuState(!nav.classList.contains('is-open')));
+  links.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (event)=>{ if (event.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', ()=>{ if (window.innerWidth > 860) closeMenu(); });
+})();
 </script></body>
 </html>

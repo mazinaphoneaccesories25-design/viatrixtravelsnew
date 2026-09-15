@@ -117,7 +117,7 @@
   </section>
 
   <section class="policy-section contact-panel" id="contact">
-    <div><div class="section-title"><span class="section-number">07</span><div><h2>Payment Questions</h2><p>Confirm an invoice or payment instruction before you pay.</p></div></div><div class="contact-links"><a href="mailto:viatrixtoursandtravelco@gmial.com">Email Viatrix</a><a href="tel:+256754189883">Call +256 754 189 883</a><a href="https://wa.me/256777271601">WhatsApp</a></div></div>
+    <div><div class="section-title"><span class="section-number">07</span><div><h2>Payment Questions</h2><p>Confirm an invoice or payment instruction before you pay.</p></div></div><div class="contact-links"><a href="mailto:viatrixtoursandtravelco@gmail.com">Email Viatrix</a><a href="tel:+256754189883">Call +256 754 189 883</a><a href="https://wa.me/256777271601">WhatsApp</a></div></div>
     <a class="cta secondary" href="terms-and-conditions.html">Read Terms &amp; Conditions &rarr;</a>
   </section>
 </div></main>
@@ -125,10 +125,28 @@
   <div class="footer-brand"><a href="index.html"><img class="footer-logo" src="logo.png" alt="Viatrix Tours &amp; Travel Co. Ltd."></a><p>Unforgettable Uganda travel experiences planned with care and local knowledge.</p></div>
   <div><h3>Explore</h3><ul><li><a href="destinations.html">Destinations</a></li><li><a href="packages.html">Packages</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="about-us.html">About Us</a></li></ul></div>
   <div><h3>Booking &amp; Legal</h3><ul><li><a href="payment-cancellation-policy.html">Payment &amp; Cancellation Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="contact-us.html#faqs">FAQs</a></li><li><a href="contact-us.html">Contact Us</a></li></ul></div>
-  <div><h3>Contact Us</h3><ul><li><a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li><li><a href="tel:+256754189883">+256 754 189 883</a></li><li><a href="https://wa.me/256777271601">WhatsApp: +256 777 271 601</a></li><li><a href="https://wa.me/256704696480">WhatsApp: 0704 696 480</a></li></ul></div>
+  <div><h3>Contact Us</h3><ul><li><a href="mailto:viatrixtoursandtravelco@gmail.com">viatrixtoursandtravelco@gmail.com</a></li><li><a href="tel:+256754189883">+256 754 189 883</a></li><li><a href="https://wa.me/256777271601">WhatsApp: +256 777 271 601</a></li><li><a href="https://wa.me/256704696480">WhatsApp: +256 704 696 480</a></li></ul></div>
 </div><div class="footer-bottom">&copy; 2026 Viatrix Tours &amp; Travel. All rights reserved.</div></div></footer>
 <script>
-(function(){const nav=document.querySelector('.site-nav'),button=document.querySelector('.menu-btn'),links=document.querySelector('.nav-links');if(!nav||!button||!links)return;function close(){nav.classList.remove('open');button.setAttribute('aria-expanded','false');button.innerHTML='&#9776;'}button.addEventListener('click',()=>{const open=!nav.classList.contains('open');nav.classList.toggle('open',open);button.setAttribute('aria-expanded',String(open));button.innerHTML=open?'&times;':'&#9776;'});links.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})})();
+(function(){
+  const nav=document.querySelector('.site-nav');
+  const button=document.querySelector('.menu-btn');
+  const links=document.querySelector('.nav-links');
+  if(!nav||!button||!links)return;
+  function setMenuState(open){
+    nav.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    button.innerHTML = open ? '&times;' : '&#9776;';
+  }
+  function close(){ setMenuState(false); }
+  button.setAttribute('aria-expanded','false');
+  button.innerHTML='&#9776;';
+  button.addEventListener('click',()=>setMenuState(!nav.classList.contains('open')));
+  links.addEventListener('click',close);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  window.addEventListener('resize',()=>{if(window.innerWidth>900)close();});
+})();
 </script>
 </body>
 </html>

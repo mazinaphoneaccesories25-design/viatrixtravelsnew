@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request a Custom Trip | Viatrix Tours & Travel</title>
+<title>Book This Package | Viatrix Tours & Travel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,37 +18,56 @@
 .nav-menu-btn{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:none;color:#fff}
 .policy-consent{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;margin:1.4rem 0 0;padding:1rem;border:1px solid #E5DECF;border-radius:12px;background:var(--cream);color:var(--muted);font-size:.78rem;line-height:1.55}.policy-consent[hidden]{display:none}.policy-consent input{width:18px;height:18px;margin:.1rem 0 0;accent-color:var(--forest-deep)}.policy-consent a{color:var(--forest-deep);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 footer{padding:3.5rem 0 2rem}footer .wrap{display:block}.footer-grid{display:grid!important;grid-template-columns:1.2fr 1fr 1fr;gap:2.2rem}.footer-grid h3{margin:0 0 .8rem;color:#fff;font-size:.9rem}.footer-grid p{margin:0;line-height:1.6}.footer-grid ul{display:grid;gap:.55rem;margin:0;padding:0;list-style:none}.footer-bottom{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.12)}
-@media(max-width:760px){.site-nav .wrap{position:relative}.nav-menu-btn{display:block}.nav-contact{display:none}.site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.65rem;background:var(--forest-deep);border-radius:16px;z-index:20}.site-nav.is-open .nav-links{display:flex}.site-nav .nav-links a{display:block;padding:.85rem}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .wrap{padding:0 1.1rem;}
+  .site-nav .wrap{position:relative}.nav-menu-btn{display:block}.nav-contact{display:none}.site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.75rem;background:rgba(15,43,33,.98);border:1px solid rgba(255,255,255,.14);border-radius:16px;z-index:20}.site-nav.is-open .nav-links{display:flex}.site-nav .nav-links a{display:block;padding:.9rem 1rem;border-radius:10px}.footer-grid{grid-template-columns:1fr 1fr}
+}
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
 </style></head>
 <body>
 <header class="site-nav"><div class="wrap"><a href="index.html" class="nav-logo"><img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd"></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="packages.html">Packages</a></li><li><a href="about-us.html">About Us</a></li></ul><a href="contact-us.html" class="nav-contact">Contact Us</a><button class="nav-menu-btn" type="button" aria-label="Open menu">☰</button></div></header>
-<main><div class="wrap"><div class="intro"><p class="eyebrow">Custom itinerary</p><h1>Tell us about your ideal trip.</h1><p>Share your dates, budget, and what you want to see. We will review your request and get back to you with a trip built for your group.</p></div>
-<form class="request-form" action="https://formsubmit.co/viatrixtoursandtravelco@gmial.com" method="POST">
-  <input type="hidden" name="_subject" value="New custom trip request - Viatrix Tours & Travel"><input type="hidden" name="_captcha" value="false">
+<main><div class="wrap"><div class="intro"><p class="eyebrow">Package booking</p><h1>Book your selected trip.</h1><p>Complete this form to request availability for the trip you chose. We will review your booking request and confirm the next steps with you.</p></div>
+<form class="request-form" action="https://formsubmit.co/viatrixtoursandtravelco@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="New package booking request - Viatrix Tours & Travel"><input type="hidden" name="_captcha" value="false">
   <div class="form-grid">
     <div class="field"><label for="name">Full name</label><input id="name" name="Full name" type="text" autocomplete="name" required></div>
     <div class="field"><label for="email">Email address</label><input id="email" name="Email" type="email" autocomplete="email" required></div>
     <div class="field"><label for="phone">Phone number</label><input id="phone" name="Phone" type="tel" autocomplete="tel" required></div>
     <div class="field"><label for="destination">Destination</label><input id="destination" name="Destination" type="text" placeholder="Uganda, Rwanda, Zanzibar..." required></div>
+    <div class="field"><label for="package-name">Package / itinerary</label><input id="package-name" name="Package" type="text" placeholder="e.g. Bwindi Gorilla Escape" required></div>
     <div class="field"><label for="check-in">Check in</label><input id="check-in" name="Check in" type="date" required></div>
     <div class="field"><label for="check-out">Check out</label><input id="check-out" name="Check out" type="date" required></div>
     <div class="field"><label for="travelers">Travelers</label><select id="travelers" name="Travelers" required><option value="" selected disabled>Select number</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div>
     <div class="field"><label for="budget">Budget per person</label><select id="budget" name="Budget per person" required><option value="" selected disabled>Select budget</option><option>Under $500</option><option>$500 - $1,000</option><option>$1,000 - $2,500</option><option>$2,500+</option></select></div>
-    <div class="field full"><label for="activities">Activities of interest</label><input id="activities" name="Activities" type="text" placeholder="Gorilla trekking, game parks, city tours, waterfalls..." required></div>
-    <div class="field full"><label for="notes">Tell us more</label><textarea id="notes" name="Additional requests" placeholder="Tell us about your preferences, accommodation needs, or anything else we should know."></textarea></div>
+    <div class="field full"><label for="notes">Trip details</label><textarea id="notes" name="Additional requests" placeholder="Tell us about your preferred dates, accommodation preferences, or anything else related to this package."></textarea></div>
   </div>
   <label class="policy-consent" for="custom-policy-consent" aria-live="polite" hidden><input id="custom-policy-consent" name="Policy agreement" type="checkbox" required disabled><span>I have read and agree to the <a href="terms-and-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a> and acknowledge the <a href="payment-cancellation-policy.html" target="_blank" rel="noopener">Payment &amp; Cancellation Policy</a>.</span></label>
-  <p class="form-note">Your request will be sent directly to the Viatrix booking team.</p><button class="submit" type="submit">Send Custom Trip Request <span>&rarr;</span></button>
+  <p class="form-note">Your booking request will be sent directly to the Viatrix travel team.</p><button class="submit" type="submit">Send Booking Request <span>&rarr;</span></button>
 </form></div></main>
-<footer><div class="wrap"><div class="footer-grid"><div><h3>Viatrix Tours &amp; Travel</h3><p>Custom Uganda journeys planned with care and local knowledge.</p></div><div><h3>Booking &amp; Legal</h3><ul><li><a href="payment-cancellation-policy.html">Payment &amp; Cancellation Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="contact-us.html#faqs">FAQs</a></li><li><a href="contact-us.html">Contact Us</a></li></ul></div><div><h3>Contact Us</h3><ul><li><a href="mailto:viatrixtoursandtravelco@gmial.com">viatrixtoursandtravelco@gmial.com</a></li><li><a href="tel:+256754189883">+256 754 189 883</a></li><li><a href="https://wa.me/256777271601">WhatsApp: +256 777 271 601</a></li><li><a href="https://wa.me/256704696480">WhatsApp: 0704 696 480</a></li></ul></div></div><div class="footer-bottom">&copy; 2026 Viatrix Tours &amp; Travel. All rights reserved.</div></div></footer>
+<footer><div class="wrap"><div class="footer-grid"><div><h3>Viatrix Tours &amp; Travel</h3><p>Custom Uganda journeys planned with care and local knowledge.</p></div><div><h3>Booking &amp; Legal</h3><ul><li><a href="payment-cancellation-policy.html">Payment &amp; Cancellation Policy</a></li><li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="contact-us.html#faqs">FAQs</a></li><li><a href="contact-us.html">Contact Us</a></li></ul></div><div><h3>Contact Us</h3><ul><li><a href="mailto:viatrixtoursandtravelco@gmail.com">viatrixtoursandtravelco@gmail.com</a></li><li><a href="tel:+256754189883">+256 754 189 883</a></li><li><a href="https://wa.me/256777271601">WhatsApp: +256 777 271 601</a></li><li><a href="https://wa.me/256704696480">WhatsApp: +256 704 696 480</a></li></ul></div></div><div class="footer-bottom">&copy; 2026 Viatrix Tours &amp; Travel. All rights reserved.</div></div></footer>
 <script>
 const tripForm=document.querySelector('.request-form');
 const checkIn=document.getElementById('check-in');
 const checkOut=document.getElementById('check-out');
+const destinationField=document.getElementById('destination');
+const packageField=document.getElementById('package-name');
 const policyConsent=document.querySelector('.policy-consent');
 const policyCheckbox=document.getElementById('custom-policy-consent');
 const requiredTripFields=[...tripForm.querySelectorAll('[required]:not([type="checkbox"])')];
+
+const params=new URLSearchParams(window.location.search);
+const destinationFromUrl=params.get('destination');
+if (destinationFromUrl) {
+  const destinationLabel=decodeURIComponent(destinationFromUrl).replace(/\+/g,' ');
+  destinationField.value=destinationLabel;
+  destinationField.readOnly=true;
+}
+
+if (params.get('package')) {
+  const packageLabel=decodeURIComponent(params.get('package')).replace(/\+/g,' ');
+  packageField.value=packageLabel;
+  packageField.readOnly=true;
+}
 
 function updatePolicyConsent(){
   checkOut.min=checkIn.value;
@@ -69,5 +88,5 @@ tripForm.addEventListener('change',updatePolicyConsent);
 window.addEventListener('pageshow',updatePolicyConsent);
 updatePolicyConsent();
 </script>
-<script>(function(){const nav=document.querySelector('.site-nav'),button=document.querySelector('.nav-menu-btn'),links=document.querySelector('.nav-links');button.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');button.textContent=open?'✕':'☰';button.setAttribute('aria-expanded',String(open))});links.addEventListener('click',()=>nav.classList.remove('is-open'))})();</script></body>
+<script>(function(){const nav=document.querySelector('.site-nav'),button=document.querySelector('.nav-menu-btn'),links=document.querySelector('.nav-links');if(!nav||!button||!links)return;function setMenuState(open){nav.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close menu':'Open menu');button.textContent=open?'✕':'☰';}function closeMenu(){setMenuState(false);}button.setAttribute('aria-expanded','false');button.textContent='☰';button.addEventListener('click',()=>setMenuState(!nav.classList.contains('is-open')));links.addEventListener('click',closeMenu);document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu();});})();</script></body>
 </html>

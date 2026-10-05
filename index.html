@@ -261,6 +261,25 @@
       <img class="hero-slide" src="company-15.jpg" loading="lazy" alt="Viatrix travelers celebrating in front of a tour coach">
       <img class="hero-slide" src="IMG_5720.JPG" loading="lazy" alt="Uganda travel landscape">
       <img class="hero-slide" src="IMG_5723.JPG" loading="lazy" alt="Uganda travel landscape">
+      <img class="hero-slide" src="_MG_6420.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6421.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6422.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6907.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6908.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6909.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6910.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="_MG_6911.JPG" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (317 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (368 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (370 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (392 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (430 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (450 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (454 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (457 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (458 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (470 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
+      <img class="hero-slide" src="1 (471 of 475).jpg" loading="lazy" alt="Recent safari wildlife experience">
       <img class="hero-slide" src="company-17.jpg" loading="lazy" alt="Viatrix Tours and Travel sign beside the water">
     </div>
     <div class="hero-scrim"></div>
@@ -552,10 +571,21 @@
   })();
 
   (function(){
-    const slides = document.querySelectorAll('.hero-slide');
+    const slidesContainer = document.querySelector('.hero-slides');
+    const slides = Array.from(slidesContainer?.querySelectorAll('.hero-slide') || []);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let current = 0;
     let timer;
+
+    function shuffleSlides(){
+      for (let i = slides.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [slides[i], slides[j]] = [slides[j], slides[i]];
+      }
+      slides.forEach((slide) => slidesContainer.appendChild(slide));
+      slides.forEach((slide) => slide.classList.remove('is-active'));
+      if (slides[0]) slides[0].classList.add('is-active');
+    }
 
     function showNextSlide(){
       slides[current].classList.remove('is-active');
@@ -575,6 +605,7 @@
     }
 
     if (slides.length > 1){
+      shuffleSlides();
       startSlideshow();
       document.addEventListener('visibilitychange', () => {
         if (document.hidden){ stopSlideshow(); } else { startSlideshow(); }

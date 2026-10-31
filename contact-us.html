@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Viatrix Tours &amp; Travel to plan a Uganda safari, ask about a booking, or request a custom itinerary.">
 <title>Contact Us — Viatrix Tours & Travel</title>
+<link rel="icon" href="logo.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -114,6 +116,11 @@
   .btn:hover{transform:translateY(-2px);}
   .btn-dark{background:var(--forest-deep);color:#fff;}
   .btn-dark:hover{background:#0a1f18;}
+  .form-status{margin:1rem 0 0;padding:.85rem 1rem;border-radius:10px;font-size:.88rem;line-height:1.5;}
+  .form-status[hidden]{display:none;}
+  .form-status.is-success{background:#e8f4ec;color:#174a2d;}
+  .form-status.is-error{background:#fff0ec;color:#8b2e18;}
+  .btn-dark:disabled{opacity:.65;cursor:wait;transform:none;}
   .policy-consent{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;margin:1rem 0 1.15rem;padding:1rem;border:1px solid #E9E2D3;border-radius:12px;background:var(--cream);color:var(--muted);font-size:.78rem;line-height:1.55;}
   .policy-consent input{width:18px;height:18px;margin:.1rem 0 0;accent-color:var(--forest-deep);}
   .policy-consent a{color:var(--forest-deep);font-weight:700;text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px;}
@@ -268,29 +275,31 @@
       </div>
     </div>
 
-    <form class="contact-form reveal" onsubmit="return false;">
+    <form class="contact-form reveal" action="https://formsubmit.co/ajax/viatrixtoursandtravelco@gmail.com" method="POST" data-ajax-form>
+      <input type="hidden" name="_subject" value="New enquiry - Viatrix Tours &amp; Travel">
+      <input type="hidden" name="_captcha" value="false">
       <h3>Send a Message</h3>
       <p>Tell us what you're dreaming up — we'll reply within 24 hours.</p>
 
       <div class="form-row">
         <div class="field">
           <label for="fname">First Name</label>
-          <input id="fname" type="text" placeholder="Your first name" required>
+          <input id="fname" name="First name" type="text" autocomplete="given-name" placeholder="Your first name" required>
         </div>
         <div class="field">
           <label for="lname">Last Name</label>
-          <input id="lname" type="text" placeholder="Your last name" required>
+          <input id="lname" name="Last name" type="text" autocomplete="family-name" placeholder="Your last name" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com" required>
+          <input id="email" name="Email" type="email" autocomplete="email" placeholder="you@example.com" required>
         </div>
         <div class="field">
           <label for="phone">Phone / WhatsApp</label>
-          <input id="phone" type="tel" placeholder="+256 ...">
+          <input id="phone" name="Phone / WhatsApp" type="tel" autocomplete="tel" placeholder="+256 ...">
         </div>
       </div>
 
@@ -298,6 +307,7 @@
         <div class="field full">
           <label for="subject">Subject</label>
           <select id="subject">
+                      <select id="subject" name="Subject">
             <option value="Travel Planning Enquiry">Trip Planning Enquiry</option>
             <option value="Existing Booking">Existing Booking</option>
             <option value="Group / Corporate Travel">Group / Corporate Travel</option>
@@ -309,7 +319,9 @@
       <div class="form-row">
         <div class="field full">
           <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell us where you'd like to go, when, and how many travelers." required></textarea>
+          <textarea id="message" name="Message" placeholder="Tell us where you'd like to go, when, and how many travelers." required></textarea>
+          <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
+          <button type="submit" class="btn btn-dark">Send Message
         </div>
       </div>
 
@@ -470,5 +482,34 @@
     }, 200);
   }
 })();
-</script></body>
+</script>
+<script>
+document.querySelectorAll('[data-ajax-form]').forEach((form)=>{
+  const status=form.querySelector('[data-form-status]');
+  const submitButton=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',async(event)=>{
+    event.preventDefault();
+    if(!form.reportValidity())return;
+    status.hidden=false;
+    status.className='form-status';
+    status.textContent='Sending your message...';
+    submitButton.disabled=true;
+    try{
+      const response=await fetch(form.action,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});
+      const result=await response.json();
+      if(!response.ok||result.success==='false')throw new Error();
+      status.classList.add('is-success');
+      status.textContent='Thanks, your message was sent. Our team will be in touch.';
+      form.reset();
+    }catch(error){
+      status.classList.add('is-error');
+      status.setAttribute('role','alert');
+      status.textContent='We could not send your message. Please try again or email viatrixtoursandtravelco@gmail.com.';
+    }finally{
+      submitButton.disabled=false;
+    }
+  });
+});
+</script>
+</body>
 </html>

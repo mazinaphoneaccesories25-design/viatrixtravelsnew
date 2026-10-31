@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Reviews Management | Viatrix Admin</title>
+  <link rel="icon" href="../logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --forest: #163C2E;
+      --forest-deep: #0F2B21;
+      --gold: #D9A054;
+      --cream: #FBF6EE;
+      --charcoal: #26251F;
+      --muted: #7B7A72;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      color: var(--forest-deep);
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header.top {
+      background: var(--forest-deep);
+      color: #fff;
+      padding: 1.2rem 0;
+    }
+
+    header.top .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    header.top h1 {
+      color: #fff;
+      font-size: 1.35rem;
+    }
+
+    header.top a {
+      color: var(--gold);
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .7rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .85rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--forest-deep);
+      color: #fff;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--forest-deep);
+    }
+
+    .btn-danger {
+      background: #B03A2E;
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid #E7DECD;
+      color: var(--charcoal);
+    }
+
+    .btn:disabled {
+      opacity: .55;
+      cursor: wait;
+      transform: none;
+    }
+
+    main {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .login-card {
+      max-width: 400px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.4rem;
+      box-shadow: 0 16px 34px -18px rgba(22, 60, 46, 0.28);
+    }
+
+    .login-card h2 {
+      font-size: 1.4rem;
+      margin-bottom: .4rem;
+    }
+
+    .login-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin: .3rem 0 1.4rem;
+    }
+
+    .login-card input {
+      width: 100%;
+      border: 1.5px solid #E7DECD;
+      border-radius: 12px;
+      padding: .8rem 1rem;
+      font: inherit;
+      margin-bottom: .9rem;
+    }
+
+    .login-card input:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media(max-width:800px) {
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 10px 24px -14px rgba(22, 60, 46, .2);
+    }
+
+    .stat .num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.9rem;
+      color: var(--forest-deep);
+      font-weight: 600;
+    }
+
+    .stat .lbl {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .2rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: .6rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: .55rem 1.1rem;
+      border-radius: 999px;
+      border: 1.5px solid #E7DECD;
+      background: #fff;
+      font-size: .84rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tab.is-active {
+      background: var(--forest-deep);
+      border-color: var(--forest-deep);
+      color: #fff;
+    }
+
+    .review-admin {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px -14px rgba(22, 60, 46, .2);
+      padding: 1.5rem;
+      margin-bottom: 1.1rem;
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .review-admin .body {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .review-admin h3 {
+      font-size: 1.02rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .review-admin .meta {
+      font-size: .78rem;
+      color: var(--muted);
+      margin: .3rem 0 .6rem;
+    }
+
+    .review-admin p.txt {
+      font-size: .88rem;
+      line-height: 1.6;
+      margin: .4rem 0;
+    }
+
+    .review-admin .private {
+      margin-top: .8rem;
+      padding: .8rem 1rem;
+      background: var(--cream);
+      border-radius: 10px;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .review-admin .actions {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      min-width: 150px;
+      justify-content: flex-start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .2rem .65rem;
+      border-radius: 999px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .badge-pending {
+      background: #FEF3E2;
+      color: #8A5A16;
+    }
+
+    .badge-published {
+      background: #EAF3ED;
+      color: var(--forest-deep);
+    }
+
+    .badge-rejected {
+      background: #F9ECE7;
+      color: #7C3A1D;
+    }
+
+    .badge-verified {
+      background: rgba(217, 160, 84, .16);
+      color: var(--forest-deep);
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: .95rem;
+    }
+
+    .stars .empty {
+      opacity: .28;
+    }
+
+    .form-status {
+      padding: .8rem 1rem;
+      border-radius: 12px;
+      font-size: .85rem;
+      margin: 0 0 1.2rem;
+      background: #EAF3ED;
+      color: var(--forest-deep);
+    }
+
+    .form-status.is-error {
+      background: #F9ECE7;
+      color: #7C3A1D;
+    }
+
+    .form-status[hidden] {
+      display: none;
+    }
+
+    .empty {
+      color: var(--muted);
+      text-align: center;
+      padding: 3rem;
+      font-size: .9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <h1>Reviews Management</h1>
+      <div>
+        <a href="../reviews.html">← Back to site</a>
+        <button class="btn btn-ghost" id="logout-btn"
+          style="margin-left:.8rem;color:#fff;border-color:rgba(255,255,255,.3);" hidden>Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Login -->
+      <div id="login-view" class="login-card">
+        <h2>Admin sign in</h2>
+        <p>Enter the admin password to manage guest reviews.</p>
+        <form id="login-form">
+          <input type="password" id="admin-pw" placeholder="Admin password" required autocomplete="current-password">
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;">Sign In</button>
+        </form>
+        <p style="margin-top:1rem;font-size:.78rem;color:var(--muted);" id="login-err" hidden>Incorrect password. Please
+          try again.</p>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="dash-view" hidden>
+        <div class="stats-row" id="stats-row"></div>
+        <div class="tabs" id="tabs">
+          <button class="tab is-active" data-tab="pending">Pending</button>
+          <button class="tab" data-tab="published">Published</button>
+          <button class="tab" data-tab="rejected">Rejected</button>
+          <button class="tab" data-tab="all">All</button>
+        </div>
+        <div class="form-status" id="status" hidden></div>
+        <div id="list"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var loginView = document.getElementById('login-view');
+      var dashView = document.getElementById('dash-view');
+      var logoutBtn = document.getElementById('logout-btn');
+      var listEl = document.getElementById('list');
+      var statusEl = document.getElementById('status');
+      var tab = 'pending';
+      var reviews = [];
+
+      var esc = function (s) { var d = document.createElement('div'); d.textContent = String(s == null ? '' : s); return d.innerHTML; };
+      function starHtml(n) { var o = ''; for (var i = 1; i <= 5; i++) { o += '<span' + (i <= n ? '' : ' class="empty"') + '>★</span>'; } return o; }
+      function flash(msg, isErr) {
+        statusEl.hidden = false; statusEl.className = 'form-status' + (isErr ? ' is-error' : ''); statusEl.textContent = msg;
+        setTimeout(function () { statusEl.hidden = true; }, 4000);
+      }
+      function fmtDate(d) { var t = new Date(d); return isNaN(t) ? esc(d) : t.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); }
+
+      function renderStats() {
+        var c = { pending: 0, published: 0, rejected: 0, all: reviews.length };
+        var avg = 0, pubN = 0, ver = 0;
+        reviews.forEach(function (r) {
+          c[r.status] = (c[r.status] || 0) + 1;
+          if (r.status === 'published') { pubN++; avg += r.rating; if (r.verified) ver++; }
+        });
+        if (pubN) avg = (avg / pubN).toFixed(1);
+        document.getElementById('stats-row').innerHTML =
+          '<div class="stat"><div class="num">' + c.pending + '</div><div class="lbl">Pending review</div></div>' +
+          '<div class="stat"><div class="num">' + c.published + '</div><div class="lbl">Published</div></div>' +
+          '<div class="stat"><div class="num">' + avg || 0 + '</div><div class="lbl">Average published rating</div></div>' +
+          '<div class="stat"><div class="num">' + ver + '</div><div class="lbl">Verified guests</div></div>';
+      }
+
+      function cardHtml(r) {
+        var actions = '';
+        if (r.status !== 'published') actions += '<button class="btn btn-dark" data-act="publish" data-id="' + esc(r.id) + '">Approve</button>';
+        if (r.status !== 'rejected') actions += '<button class="btn btn-ghost" data-act="reject" data-id="' + esc(r.id) + '">Reject</button>';
+        actions += '<button class="btn btn-gold" data-act="toggle-verify" data-id="' + esc(r.id) + '">' + (r.verified ? 'Unmark' : 'Mark') + ' Verified</button>';
+        actions += '<button class="btn btn-danger" data-act="delete" data-id="' + esc(r.id) + '">Delete</button>';
+        return '<div class="review-admin">' +
+          '<div class="body">' +
+          '<div><span class="stars">' + starHtml(r.rating) + '</span> <span class="badge badge-' + esc(r.status) + '">' + esc(r.status) + '</span>' +
+          (r.verified ? ' <span class="badge badge-verified">Verified</span>' : '') + '</div>' +
+          '<h3>' + esc(r.title) + '</h3>' +
+          '<p class="meta">' + esc(r.name) + ' · ' + fmtDate(r.date) + ' · ' + esc(r.tour) + (r.country ? ' · ' + esc(r.country) : '') + '</p>' +
+          '<p class="txt">' + esc(r.body) + '</p>' +
+          (r.photo ? '<p class="txt"><a href="../' + esc(r.photo) + '" target="_blank" rel="noopener">View attached photo →</a></p>' : '') +
+          '<div class="private">🔒 Private — never published: ' + esc(r.email) + ' · IP ' + esc(r.ip) + '</div>' +
+          '</div>' +
+          '<div class="actions">' + actions + '</div>' +
+          '</div>';
+      }
+
+      function render() {
+        var list = reviews.filter(function (r) { return tab === 'all' || r.status === tab; });
+        listEl.innerHTML = list.length ? list.map(cardHtml).join('') : '<div class="empty">No reviews in this view.</div>';
+      }
+
+      function load() {
+        fetch('api/reviews.php?action=admin_list', { headers: { 'Accept': 'application/json' } })
+          .then(function (r) { if (r.status === 401) throw new Error('auth'); return r.json(); })
+          .then(function (d) {
+            reviews = d.reviews || [];
+            renderStats(); render();
+            loginView.hidden = true; dashView.hidden = false; logoutBtn.hidden = false;
+          })
+          .catch(function (e) {
+            if (e.message === 'auth') { loginView.hidden = false; dashView.hidden = true; logoutBtn.hidden = true; }
+          });
+      }
+
+      document.getElementById('login-form').addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        var res = await fetch('api/reviews.php?action=login', { method: 'POST', body: new URLSearchParams({ password: document.getElementById('admin-pw').value }) });
+        if (res.ok) { document.getElementById('admin-pw').value = ''; load(); }
+        else { document.getElementById('login-err').hidden = false; }
+      });
+      logoutBtn.addEventListener('click', async function () {
+        await fetch('api/reviews.php?action=logout', { method: 'POST' });
+        loginView.hidden = false; dashView.hidden = true; logoutBtn.hidden = true;
+      });
+
+      document.getElementById('tabs').addEventListener('click', function (e) {
+        var b = e.target.closest('.tab'); if (!b) return;
+        document.querySelectorAll('.tab').forEach(function (t) { t.classList.remove('is-active'); });
+        b.classList.add('is-active'); tab = b.dataset.tab; render();
+      });
+
+      listEl.addEventListener('click', async function (e) {
+        var b = e.target.closest('button[data-act]'); if (!b) return;
+        var id = b.dataset.id, act = b.dataset.act;
+        if (act === 'delete' && !confirm('Delete this review permanently?')) return;
+        var body = new URLSearchParams({ id: id });
+        if (act === 'publish') body.append('status', 'published');
+        if (act === 'reject') body.append('status', 'rejected');
+        if (act === 'toggle-verify') body.append('verified', b.textContent.indexOf('Unmark') === 0 ? '0' : '1');
+        b.disabled = true;
+        try {
+          var res = await fetch('api/reviews.php?action=' + (act === 'delete' ? 'admin_delete' : 'admin_update'), { method: 'POST', body: body });
+          var r = await res.json();
+          if (!res.ok || !r.ok) throw new Error(r.error || 'Failed');
+          flash(act === 'delete' ? 'Review deleted.' : 'Review updated.');
+          load();
+        } catch (err) { flash(err.message || 'Action failed.', true); b.disabled = false; }
+      });
+
+      load();
+    })();
+  </script>
+</body>
+
+</html>

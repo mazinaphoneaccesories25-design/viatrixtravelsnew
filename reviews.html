@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Read genuine guest reviews of Viatrix Tours &amp; Travel — safari, gorilla trekking and adventure journeys across Uganda, told by the travellers who lived them.">
+<title>Guest Reviews &amp; Testimonials | Viatrix Tours &amp; Travel</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#163C2E;
+    --forest-deep:#0F2B21;
+    --gold:#D9A054;
+    --cream:#FBF6EE;
+    --cream-card:#FFFFFF;
+    --charcoal:#26251F;
+    --muted:#7B7A72;
+    --radius-lg:20px;
+    --radius-md:14px;
+    --shadow-card: 0 16px 34px -18px rgba(22,60,46,0.28);
+    --shadow-pop: 0 24px 60px -22px rgba(22,60,46,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--cream);color:var(--charcoal);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-size:16px;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;margin:0;color:var(--forest-deep);letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 6vw;}
+  .eyebrow{font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;}}
+
+  /* ---------- Nav — transparent, floats on the hero photo ---------- */
+  .site-nav{position:absolute;top:0;left:0;right:0;z-index:20;background:transparent;}
+  .site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:96px;}
+  .nav-logo{display:flex;align-items:center;gap:.5rem;}
+  .site-nav .nav-logo-img{display:block;width:104px;height:74px;object-fit:contain;}
+  .nav-logo .mark{font-size:1.1rem;color:#fff;}
+  .nav-logo-text{font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;color:#fff;}
+  .nav-logo-text small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.68rem;color:rgba(255,255,255,0.75);letter-spacing:.02em;}
+  .nav-links{display:flex;gap:2.2rem;list-style:none;margin:0;padding:0;font-size:.92rem;font-weight:500;color:#fff;}
+  .nav-links a.is-current{border-bottom:2px solid var(--gold);padding-bottom:4px;}
+  .nav-right{display:flex;align-items:center;gap:.9rem;}
+  .nav-contact{background:#fff;color:var(--forest-deep);padding:.75rem 1.5rem;border-radius:999px;font-weight:600;font-size:.88rem;}
+  .nav-menu-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:flex;align-items:center;justify-content:center;}
+  @media (max-width:860px){
+    .wrap{padding:0 1.1rem;}
+    .nav-links{display:none;}
+  }
+  @media(max-width:860px){
+    .site-nav .wrap{position:relative}
+    .nav-menu-btn{display:flex}
+    .site-nav .nav-links{position:absolute;top:84px;left:6vw;right:6vw;display:none;flex-direction:column;gap:0;padding:.65rem;background:var(--forest-deep);border:1px solid rgba(255,255,255,.14);border-radius:16px;box-shadow:0 18px 44px rgba(15,43,33,.3)}
+    .site-nav.is-open .nav-links{display:flex}
+    .site-nav .nav-links a{display:block;padding:.85rem 1rem;border-radius:10px}
+  }
+  @media(max-width:560px){.site-nav .wrap{height:82px}.site-nav .nav-logo-img{width:88px;height:64px}.nav-contact{display:none}.site-nav .nav-links{top:74px}}
+
+  /* ---------- Page hero banner ---------- */
+  .page-hero{position:relative;}
+  .page-hero-frame{position:relative;overflow:hidden;height:min(70vh,600px);min-height:500px;}
+  .page-hero-frame img{width:100%;height:100%;object-fit:cover;}
+  .page-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(15,43,33,0.55) 0%, rgba(15,43,33,0.25) 45%, rgba(15,43,33,0.7) 100%);}
+  .page-hero-copy{position:absolute;left:0;right:0;bottom:0;padding:0 6vw 2.6rem;color:#fff;}
+  .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,0.75);margin-bottom:.8rem;}
+  .breadcrumb .sep{opacity:.6;}
+  .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.4vw,3.2rem);}
+  .page-hero p.sub{margin-top:.7rem;max-width:560px;color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.55;}
+
+  /* ---------- Section head (shared pattern) ---------- */
+  .section-head{max-width:560px;margin:0 auto 3rem;text-align:center;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.3rem);margin-top:.5rem;}
+  .section-head p{margin-top:.8rem;font-size:.98rem;color:var(--muted);line-height:1.6;}
+
+  /* ---------- Ratings overview ---------- */
+  .overview{padding:5rem 0 2rem;}
+  .overview-card{
+    background:var(--cream-card);border-radius:24px;box-shadow:var(--shadow-card);
+    padding:2.8rem 3rem;display:grid;grid-template-columns:auto 1fr;gap:3.5rem;align-items:center;
+  }
+  .ov-score{text-align:center;}
+  .ov-score .num{font-family:'Fraunces',serif;font-size:4.6rem;font-weight:600;color:var(--forest-deep);line-height:1;}
+  .ov-score .num small{font-size:1.6rem;color:var(--muted);font-weight:500;}
+  .stars{display:inline-flex;gap:.18rem;color:var(--gold);font-size:1.05rem;}
+  .stars .empty{opacity:.28;}
+  .ov-count{margin-top:.55rem;font-size:.86rem;color:var(--muted);}
+  .ov-count b{color:var(--forest-deep);}
+  .ov-break{display:flex;flex-direction:column;gap:.75rem;}
+  .break-row{display:grid;grid-template-columns:3.6rem 1fr 2.6rem;align-items:center;gap:.9rem;font-size:.85rem;color:var(--muted);}
+  .break-row .lbl{font-weight:600;white-space:nowrap;}
+  .break-row .lbl b{color:var(--gold);}
+  .break-bar{height:9px;border-radius:999px;background:var(--cream);overflow:hidden;}
+  .break-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--forest-deep),var(--gold));width:0;transition:width 1s cubic-bezier(.22,.61,.36,1);}
+  .break-row .cnt{text-align:right;font-variant-numeric:tabular-nums;}
+  .ov-cta{text-align:center;margin-top:.4rem;}
+  @media (max-width:900px){.overview-card{grid-template-columns:1fr;gap:2.2rem;padding:2.2rem 1.6rem;}}
+
+  /* ---------- Filters + review grid ---------- */
+  .reviews{padding:4.5rem 0 2rem;}
+  .filter-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.6rem;}
+  .filter-btn{
+    padding:.62rem 1.25rem;border-radius:999px;border:1.5px solid #E7DECD;background:#fff;
+    font-weight:600;font-size:.85rem;color:var(--charcoal);transition:all .25s;
+  }
+  .filter-btn:hover{border-color:var(--gold);transform:translateY(-2px);}
+  .filter-btn.is-active{background:var(--forest-deep);border-color:var(--forest-deep);color:#fff;}
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;}
+  @media (max-width:980px){.review-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.review-grid{grid-template-columns:1fr;}}
+  .review-card{
+    background:var(--cream-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);
+    padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1rem;
+    transition:transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;
+  }
+  .review-card:hover{transform:translateY(-6px);box-shadow:0 26px 44px -18px rgba(22,60,46,0.32);}
+  .review-top{display:flex;align-items:center;gap:.9rem;}
+  .review-avatar{
+    width:52px;height:52px;border-radius:50%;background:var(--forest-deep);border:3px solid var(--gold);
+    color:#fff;font-family:'Fraunces',serif;font-size:1.25rem;display:flex;align-items:center;justify-content:center;
+    object-fit:cover;flex-shrink:0;
+  }
+  .review-id h3{font-size:1rem;font-family:'Inter',sans-serif;font-weight:600;}
+  .review-id .meta{font-size:.76rem;color:var(--muted);margin-top:.2rem;}
+  .verified-badge{
+    display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;
+    font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--forest-deep);
+    background:rgba(217,160,84,.16);border-radius:999px;padding:.2rem .6rem;
+  }
+  .review-stars{font-size:.95rem;}
+  .review-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.05rem;color:var(--forest-deep);}
+  .review-text{font-size:.9rem;line-height:1.65;color:rgba(38,37,31,0.78);flex:1;}
+  .review-photo{border-radius:var(--radius-md);overflow:hidden;max-height:220px;}
+  .review-photo img{width:100%;height:220px;object-fit:cover;}
+  .review-foot{font-size:.74rem;color:var(--muted);border-top:1px solid #EDE7DA;padding-top:.9rem;}
+  .empty-state{text-align:center;padding:4rem 1rem;color:var(--muted);}
+  .empty-state .big{font-size:2.4rem;display:block;margin-bottom:.8rem;}
+  .load-more-row{text-align:center;margin-top:2.6rem;}
+
+  /* ---------- Buttons (shared style) ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:600;font-size:.93rem;transition:transform .25s, background .25s;border:none;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-dark{background:var(--forest-deep);color:#fff;}
+  .btn-dark:hover{background:#0a1f18;}
+  .btn-dark:disabled{opacity:.6;transform:none;cursor:wait;}
+  .btn-light{background:#fff;color:var(--forest-deep);}
+  .btn-light:hover{background:var(--cream);}
+  .btn-gold{background:var(--gold);color:var(--forest-deep);}
+  .btn-gold:hover{background:#c98f43;}
+
+  /* ---------- Leave a review form ---------- */
+  .leave-review{padding:5rem 0 6rem;}
+  .review-form-card{
+    background:var(--cream-card);border-radius:24px;box-shadow:var(--shadow-pop);
+    max-width:760px;margin:0 auto;padding:3rem;
+  }
+  @media (max-width:640px){.review-form-card{padding:1.8rem 1.3rem;}}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+  .form-field{display:flex;flex-direction:column;gap:.4rem;}
+  .form-field.full{grid-column:1/-1;}
+  @media (max-width:640px){.form-grid{grid-template-columns:1fr;}}
+  .form-field label{font-size:.82rem;font-weight:600;color:var(--forest-deep);}
+  .form-field label .opt{color:var(--muted);font-weight:400;}
+  .form-field input[type=text],.form-field input[type=email],.form-field select,.form-field textarea{
+    border:1.5px solid #E7DECD;border-radius:12px;padding:.8rem 1rem;font:inherit;font-size:.9rem;background:#fff;color:var(--charcoal);
+    transition:border-color .2s;
+  }
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--gold);}
+  .form-field textarea{resize:vertical;min-height:130px;}
+  .star-input{display:flex;gap:.35rem;direction:rtl;}
+  .star-input button{font-size:1.7rem;color:#D8CFBD;transition:color .15s, transform .15s;line-height:1;}
+  .star-input button:hover{transform:scale(1.15);}
+  .star-input button.is-on{color:var(--gold);}
+  .star-label{font-size:.78rem;color:var(--muted);min-height:1.1em;}
+  .file-drop{border:1.5px dashed #D8CFBD;border-radius:12px;padding:1.1rem;text-align:center;font-size:.82rem;color:var(--muted);cursor:pointer;transition:border-color .2s;background:#fff;}
+  .file-drop:hover{border-color:var(--gold);}
+  .file-drop input{position:absolute;width:1px;height:1px;opacity:0;}
+  .file-drop .picked{display:block;margin-top:.4rem;color:var(--forest-deep);font-weight:600;}
+  .consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--muted);line-height:1.5;cursor:pointer;}
+  .consent input{margin-top:.2rem;accent-color:var(--forest-deep);width:16px;height:16px;flex-shrink:0;}
+  .hp-field{position:absolute;left:-9999px;top:-9999px;}
+  .form-status{margin-top:1.2rem;padding:.9rem 1.2rem;border-radius:12px;font-size:.88rem;line-height:1.5;background:var(--cream);}
+  .form-status.is-success{background:#EAF3ED;color:var(--forest-deep);border:1px solid rgba(22,60,46,.15);}
+  .form-status.is-error{background:#F9ECE7;color:#7C3A1D;border:1px solid rgba(124,58,29,.15);}
+  .form-status[hidden]{display:none;}
+
+  /* ---------- CTA banner ---------- */
+  .promo{padding:0 0 6rem;}
+  .promo-card{position:relative;border-radius:24px;overflow:hidden;min-height:300px;display:flex;align-items:center;background:var(--forest-deep);}
+  .promo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;}
+  .promo-scrim{position:absolute;inset:0;background:linear-gradient(90deg, rgba(15,43,33,0.94) 0%, rgba(15,43,33,0.72) 42%, rgba(15,43,33,0.15) 85%);}
+  .promo-copy{position:relative;padding:3rem;max-width:480px;color:#fff;}
+  .promo-copy h2{color:#fff;font-size:clamp(1.7rem,3vw,2.3rem);margin:.6rem 0 .8rem;}
+  .promo-copy p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:1.6rem;}
+
+  /* ---------- Footer (shared) ---------- */
+  footer.site-footer{background:var(--forest-deep);color:rgba(251,245,234,0.7);padding:4.5rem 0 2rem;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(251,245,234,0.12);}
+  .footer-brand .nav-logo-text{color:#fff;}
+  .footer-brand .nav-logo-img{display:block;width:120px;height:84px;object-fit:contain;}
+  .footer-brand p{margin-top:1rem;font-size:.88rem;line-height:1.6;max-width:260px;}
+  .footer-col h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;font-size:.92rem;margin-bottom:1.1rem;}
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem;font-size:.88rem;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.6rem;font-size:.8rem;flex-wrap:wrap;gap:1rem;}
+  .social-icons{display:flex;gap:.8rem;}
+  .social-icons a{width:34px;height:34px;border-radius:50%;background:rgba(251,245,234,0.08);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+  @media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE HERO — same transparent-nav-on-photo treatment as the
+     other interior pages
+     ============================================================ -->
+<header class="page-hero">
+  <div class="page-hero-frame">
+    <img src="assets/optimized/IMG_5576.jpg" alt="Guests on a Viatrix safari game drive at golden hour">
+    <div class="page-hero-scrim"></div>
+
+    <nav class="site-nav" aria-label="Primary">
+      <div class="wrap">
+        <a href="index.html" class="nav-logo">
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
+        </a>
+        <ul class="nav-links">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="reviews.html" class="is-current">Reviews</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="contact-us.html" class="nav-contact">Contact Us</a>
+          <button class="nav-menu-btn" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero-copy">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span>Reviews</span>
+      </div>
+      <h1>Guest Reviews &amp; Experiences</h1>
+      <p class="sub">Every journey tells a story. Discover what our guests have to say about their experiences with Viatrix Tours &amp; Travel. Your feedback inspires us to create even more memorable journeys.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     RATINGS OVERVIEW — calculated live from published reviews only
+     ============================================================ -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <div class="overview-card reveal">
+      <div class="ov-score">
+        <div class="num"><span id="ov-avg">–</span><small>/5</small></div>
+        <div class="stars" id="ov-stars" role="img" aria-label="Average rating"></div>
+        <p class="ov-count">Based on <b id="ov-count">0</b> verified traveller reviews</p>
+        <div class="ov-cta"><a href="#leave-review" class="btn btn-gold">Leave a Review <span>→</span></a></div>
+      </div>
+      <div class="ov-break" id="ov-break" aria-label="Rating distribution"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUEST REVIEWS
+     ============================================================ -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">In Their Words</p>
+      <h2>Stories from the road</h2>
+      <p>Every review below was written by a real Viatrix guest after their trip. Reviews appear here only after our team has verified and approved them.</p>
+    </div>
+
+    <div class="filter-row" role="tablist" aria-label="Filter reviews">
+      <button class="filter-btn is-active" data-filter="all">All Reviews</button>
+      <button class="filter-btn" data-filter="5">5-Star Reviews</button>
+      <button class="filter-btn" data-filter="4">4-Star Reviews</button>
+      <button class="filter-btn" data-filter="safari">Safari Experiences</button>
+      <button class="filter-btn" data-filter="gorilla">Gorilla Trekking</button>
+      <button class="filter-btn" data-filter="adventure">Adventure Tours</button>
+      <button class="filter-btn" data-filter="accommodation">Accommodation &amp; Hospitality</button>
+    </div>
+
+    <div class="review-grid" id="review-grid" aria-live="polite"></div>
+    <div class="empty-state" id="empty-state" hidden>
+      <span class="big">🧭</span>
+      <h3 style="font-size:1.2rem;">No reviews here yet</h3>
+      <p style="margin-top:.5rem;">Try a different filter — or be the first to share your journey below.</p>
+    </div>
+    <div class="load-more-row">
+      <button class="btn btn-dark" id="load-more" hidden>Load More Reviews <span>↓</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEAVE A REVIEW
+     ============================================================ -->
+<section class="leave-review" id="leave-review">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Share Your Story</p>
+      <h2>Leave a review</h2>
+      <p>Tell us about your journey. Every review is read by our team and published after moderation.</p>
+    </div>
+
+    <form class="review-form-card reveal" id="review-form" novalidate>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="rv-name">Full Name</label>
+          <input type="text" id="rv-name" name="name" required maxlength="80" autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label for="rv-email">Email Address <span class="opt">(kept private — never published)</span></label>
+          <input type="email" id="rv-email" name="email" required maxlength="120" autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label for="rv-tour">Destination or Tour Experienced</label>
+          <input type="text" id="rv-tour" name="tour" required maxlength="120" list="tour-list">
+          <datalist id="tour-list">
+            <option>Bwindi Impenetrable Forest — Gorilla Trekking</option>
+            <option>Queen Elizabeth National Park Safari</option>
+            <option>Murchison Falls National Park Safari</option>
+            <option>Kampala City &amp; Cultural Tour</option>
+            <option>Jinja Adventure — Source of the Nile</option>
+            <option>Custom Trip</option>
+          </datalist>
+        </div>
+        <div class="form-field">
+          <label for="rv-country">Country of Residence <span class="opt">(optional)</span></label>
+          <input type="text" id="rv-country" name="country" maxlength="80" autocomplete="country-name">
+        </div>
+        <div class="form-field full">
+          <label id="rv-rating-label">Overall Rating</label>
+          <div class="star-input" role="radiogroup" aria-labelledby="rv-rating-label" id="star-input">
+            <button type="button" data-star="5" role="radio" aria-checked="false" aria-label="5 stars">★</button>
+            <button type="button" data-star="4" role="radio" aria-checked="false" aria-label="4 stars">★</button>
+            <button type="button" data-star="3" role="radio" aria-checked="false" aria-label="3 stars">★</button>
+            <button type="button" data-star="2" role="radio" aria-checked="false" aria-label="2 stars">★</button>
+            <button type="button" data-star="1" role="radio" aria-checked="false" aria-label="1 star">★</button>
+          </div>
+          <span class="star-label" id="star-label"></span>
+          <input type="hidden" name="rating" id="rv-rating" required>
+        </div>
+        <div class="form-field full">
+          <label for="rv-title">Review Title</label>
+          <input type="text" id="rv-title" name="title" required maxlength="100" placeholder="A short headline for your experience">
+        </div>
+        <div class="form-field full">
+          <label for="rv-body">Written Review / Travel Experience</label>
+          <textarea id="rv-body" name="body" required maxlength="2500" placeholder="Tell us about the places, the people, the moments that stayed with you…"></textarea>
+        </div>
+        <div class="form-field full">
+          <label>Photograph from Your Trip <span class="opt">(optional — JPG or PNG, up to 4 MB)</span></label>
+          <label class="file-drop" for="rv-photo">
+            📷 Drop or choose a photo
+            <input type="file" id="rv-photo" name="photo" accept="image/jpeg,image/png,image/webp">
+            <span class="picked" id="photo-name" hidden></span>
+          </label>
+        </div>
+        <div class="form-field full">
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            <span>I confirm that this review reflects my genuine experience with Viatrix Tours &amp; Travel and agree to its publication.</span>
+          </label>
+        </div>
+        <!-- honeypot: hidden from humans, catches bots -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="rv-website">Website</label>
+          <input type="text" id="rv-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-field full">
+          <button type="submit" class="btn btn-dark" id="rv-submit">Submit My Review <span>→</span></button>
+        </div>
+      </div>
+      <div class="form-status" data-form-status role="status" hidden></div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="promo">
+  <div class="wrap">
+    <div class="promo-card reveal">
+      <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80" alt="Green hills and misty valleys in East Africa">
+      <div class="promo-scrim"></div>
+      <div class="promo-copy">
+        <p class="eyebrow">Ready When You Are</p>
+        <h2>Let's write your story next</h2>
+        <p>Tell us what you're chasing and a real member of our team will get back to you within a day.</p>
+        <a href="contact-us.html?enquiry=travel-expert" class="btn btn-light">Talk to a Travel Expert <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER (shared with rest of site)
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img class="nav-logo-img" src="logo.png" alt="Viatrix Tours & Travel Co. Ltd">
+        </a>
+        <p>We help you discover Uganda with unforgettable travel experiences and exceptional service.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Booking &amp; Legal</h4>
+        <ul>
+          <li><a href="payment-cancellation-policy.html">Payment &amp; Cancellation Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="contact-us.html#faqs">FAQs</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col"><h4>Contact Us</h4><ul><li>Email: <a href="mailto:viatrixtoursandtravelco@gmail.com">viatrixtoursandtravelco@gmail.com</a></li><li>Tel: <a href="tel:+256754189883">+256 754 189 883</a></li><li>WhatsApp: <a href="https://wa.me/256777271601">+256 777 271 601</a></li><li>WhatsApp: <a href="https://wa.me/256704696480">+256 704 696 480</a></li><li><a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt?igsi=eG45OXR0emF5dTBw&amp;utm_source=qr">Instagram</a></li><li><a href="https://www.tiktok.com/@viatrixmaama?_r=1&amp;_t=ZS-99GIxSjAvlE">TikTok</a></li><li><a href="https://x.com/viatrixt96128?s=11" target="_blank" rel="noopener noreferrer">X</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Viatrix Tours & Travel. All rights reserved.</span>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/viatrix_tours_and_travel_co_lt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+        <a href="https://www.tiktok.com/@viatrixmaama" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+        <a href="https://x.com/viatrixt96128" target="_blank" rel="noopener noreferrer" aria-label="X">✕</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- Mobile menu (shared behaviour) ---------- */
+  var nav=document.querySelector('.site-nav');
+  var menuBtn=nav&&nav.querySelector('.nav-menu-btn');
+  if(nav&&menuBtn){
+    menuBtn.addEventListener('click',function(){
+      var open=nav.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-label',open?'Close menu':'Open menu');
+      menuBtn.textContent=open?'✕':'☰';
+    });
+  }
+
+  /* ---------- Reveal on scroll (shared behaviour) ---------- */
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    reveals.forEach(function(el){io.observe(el);});
+  }else{
+    reveals.forEach(function(el){el.classList.add('is-visible');});
+  }
+
+  /* ---------- Helpers ---------- */
+  var PAGE_SIZE=6, shown=0, allReviews=[], currentFilter='all';
+  var grid=document.getElementById('review-grid');
+  var emptyState=document.getElementById('empty-state');
+  var loadMoreBtn=document.getElementById('load-more');
+  var esc=function(s){var d=document.createElement('div');d.textContent=String(s==null?'':s);return d.innerHTML;};
+  function starHtml(n){
+    var out='';
+    for(var i=1;i<=5;i++){out+='<span'+(i<=n?'':' class="empty"')+'>★</span>';}
+    return out;
+  }
+  var CATEGORY_MATCH={
+    safari:['safari','wildlife','game drive','park','national park','lion','elephant','boat'],
+    gorilla:['gorilla','trek','bwindi','mgahinga','primate','chimp'],
+    adventure:['adventure','rafting','nile','jinja','hike','climb','zip','atv','kayak'],
+    accommodation:['hotel','lodge','accommodation','room','hospitality','stay','cabin','tent']
+  };
+  function inCategory(r,cat){
+    var hay=((r.tour||'')+' '+(r.title||'')+' '+(r.body||'')).toLowerCase();
+    return (CATEGORY_MATCH[cat]||[]).some(function(w){return hay.indexOf(w)!==-1;});
+  }
+  function filtered(){
+    return allReviews.filter(function(r){
+      if(currentFilter==='all')return true;
+      if(currentFilter==='5'||currentFilter==='4')return String(r.rating)===currentFilter;
+      return inCategory(r,currentFilter);
+    });
+  }
+
+  /* ---------- Render ---------- */
+  function cardHtml(r){
+    var initial=(r.name||'?').trim().charAt(0).toUpperCase();
+    var avatar=r.photo
+      ? '<img class="review-avatar" src="'+esc(r.photo)+'" alt="Photo shared by '+esc(r.name)+'">'
+      : '<span class="review-avatar" aria-hidden="true">'+esc(initial)+'</span>';
+    var verified=r.verified
+      ? '<span class="verified-badge">✔ Verified Guest</span>'
+      : '';
+    var photo=r.photo
+      ? '<figure class="review-photo"><img src="'+esc(r.photo)+'" alt="Travel photo from '+esc(r.name)+'" loading="lazy"></figure>'
+      : '';
+    var d=new Date(r.date);
+    var dateTxt=isNaN(d)?esc(r.date):d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    return '<article class="review-card">'+
+      '<div class="review-top">'+avatar+
+        '<div class="review-id"><h3>'+esc(r.name)+'</h3>'+
+        '<p class="meta">'+dateTxt+(r.country?' · '+esc(r.country):'')+'</p>'+verified+'</div>'+
+      '</div>'+
+      '<div class="review-stars" aria-label="Rated '+r.rating+' out of 5">'+starHtml(r.rating)+'</div>'+
+      '<h3 class="review-title">'+esc(r.title)+'</h3>'+
+      '<p class="review-text">'+esc(r.body)+'</p>'+photo+
+      '<p class="review-foot">'+esc(r.tour)+'</p>'+
+    '</article>';
+  }
+  function render(reset){
+    var list=filtered();
+    if(reset)shown=0;
+    var slice=list.slice(0,shown+PAGE_SIZE);
+    grid.innerHTML=slice.map(cardHtml).join('');
+    emptyState.hidden=list.length>0;
+    loadMoreBtn.hidden=!(shown+PAGE_SIZE<list.length);
+    if(slice.length>shown){shown=slice.length;}
+  }
+
+  /* ---------- Overview stats (published reviews only) ---------- */
+  function renderOverview(list){
+    var n=list.length;
+    document.getElementById('ov-count').textContent=n;
+    if(!n){
+      document.getElementById('ov-avg').textContent='–';
+      document.getElementById('ov-stars').innerHTML='<span class="empty">★</span>'.repeat(5);
+      document.getElementById('ov-break').innerHTML='<p style="color:var(--muted);font-size:.88rem;">No published reviews yet — be the first to share your experience.</p>';
+      return;
+    }
+    var avg=list.reduce(function(s,r){return s+r.rating;},0)/n;
+    document.getElementById('ov-avg').textContent=(Math.round(avg*10)/10).toFixed(1);
+    document.getElementById('ov-stars').innerHTML=starHtml(Math.round(avg));
+    var counts=[0,0,0,0,0];
+    list.forEach(function(r){counts[r.rating-1]++;});
+    document.getElementById('ov-break').innerHTML=counts.map(function(c,i){
+      var stars=5-i;
+      var pct=n?Math.round(c/n*100):0;
+      return '<div class="break-row"><span class="lbl"><b>'+stars+'</b> star'+(stars>1?'s':'')+'</span>'+
+        '<div class="break-bar"><div class="break-fill" data-w="'+pct+'"></div></div>'+
+        '<span class="cnt">'+c+'</span></div>';
+    }).reverse().join('');
+    requestAnimationFrame(function(){
+      document.querySelectorAll('.break-fill').forEach(function(f){f.style.width=f.dataset.w+'%';});
+    });
+  }
+
+  /* ---------- Structured data — only from real published reviews ---------- */
+  function renderSchema(list){
+    var old=document.getElementById('rv-schema');
+    if(old)old.remove();
+    if(list.length<1)return;
+    var ld={
+      "@context":"https://schema.org","@type":"LocalBusiness",
+      "name":"Viatrix Tours & Travel",
+      "url":"https://viatrix-tours-and-travel.com/",
+      "aggregateRating":{
+        "@type":"AggregateRating",
+        "ratingValue":(Math.round(list.reduce(function(s,r){return s+r.rating;},0)/list.length*10)/10).toFixed(1),
+        "reviewCount":list.length,
+        "bestRating":"5","worstRating":"1"
+      }
+    };
+    var s=document.createElement('script');
+    s.type='application/ld+json';s.id='rv-schema';
+    s.textContent=JSON.stringify(ld);
+    document.head.appendChild(s);
+  }
+
+  /* ---------- Load reviews ---------- */
+  function load(){
+    fetch('api/reviews.php?action=list',{headers:{'Accept':'application/json'}})
+      .then(function(r){return r.json();})
+      .then(function(data){
+        allReviews=(data.reviews||[]).map(function(r){return Object.assign({},r,{rating:Math.max(1,Math.min(5,parseInt(r.rating,10)||0))});})
+          .filter(function(r){return r.rating>=1;});
+        renderOverview(allReviews);
+        renderSchema(allReviews);
+        render(true);
+      })
+      .catch(function(){
+        emptyState.hidden=false;
+        emptyState.innerHTML='<span class="big">⚠</span><h3 style="font-size:1.2rem;">Reviews are temporarily unavailable</h3><p style="margin-top:.5rem;">Please refresh the page, or email viatrixtoursandtravelco@gmail.com.</p>';
+      });
+  }
+
+  /* ---------- Filters ---------- */
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('is-active');b.setAttribute('aria-selected','false');});
+      btn.classList.add('is-active');btn.setAttribute('aria-selected','true');
+      currentFilter=btn.dataset.filter;
+      render(true);
+    });
+  });
+  loadMoreBtn.addEventListener('click',function(){shown+=PAGE_SIZE;render(false);});
+
+  /* ---------- Interactive star rating ---------- */
+  var starInput=document.getElementById('star-input');
+  var starLabel=document.getElementById('star-label');
+  var rvRating=document.getElementById('rv-rating');
+  var STAR_LABELS={'1':'Needs improvement','2':'Below expectations','3':'Good','4':'Very good','5':'Outstanding'};
+  function setStar(v,confirm){
+    starInput.querySelectorAll('button').forEach(function(b){
+      var on=parseInt(b.dataset.star,10)<=v;
+      b.classList.toggle('is-on',on);
+      b.setAttribute('aria-checked',confirm&&parseInt(b.dataset.star,10)===v?'true':'false');
+    });
+    starLabel.textContent=v?STAR_LABELS[v]:'';
+    if(confirm){rvRating.value=v;}
+  }
+  starInput.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('mouseenter',function(){setStar(parseInt(b.dataset.star,10),false);});
+    b.addEventListener('focus',function(){setStar(parseInt(b.dataset.star,10),false);});
+    b.addEventListener('click',function(){setStar(parseInt(b.dataset.star,10),true);});
+  });
+  starInput.addEventListener('mouseleave',function(){setStar(parseInt(rvRating.value,10)||0,true);});
+
+  /* ---------- Photo picker ---------- */
+  var photoInput=document.getElementById('rv-photo');
+  var photoName=document.getElementById('photo-name');
+  photoInput.addEventListener('change',function(){
+    if(photoInput.files[0]){
+      photoName.hidden=false;
+      photoName.textContent=photoInput.files[0].name;
+    }else{photoName.hidden=true;}
+  });
+
+  /* ---------- Submission ---------- */
+  var form=document.getElementById('review-form');
+  var statusEl=form.querySelector('[data-form-status]');
+  var submitBtn=document.getElementById('rv-submit');
+  form.addEventListener('submit',async function(event){
+    event.preventDefault();
+    statusEl.hidden=true;statusEl.className='form-status';
+    var problems=[];
+    var fName=document.getElementById('rv-name'),fEmail=document.getElementById('rv-email'),
+        fTour=document.getElementById('rv-tour'),fTitle=document.getElementById('rv-title'),
+        fBody=document.getElementById('rv-body'),fConsent=form.querySelector('input[name="consent"]');
+    if(!fName.value.trim())problems.push('your full name');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fEmail.value.trim()))problems.push('a valid email address');
+    if(!fTour.value.trim())problems.push('the destination or tour');
+    if(!rvRating.value)problems.push('an overall star rating');
+    if(!fTitle.value.trim())problems.push('a review title');
+    if(fBody.value.trim().length<20)problems.push('a written review of at least 20 characters');
+    if(!fConsent.checked)problems.push('confirmation that the review is genuine');
+    var file=photoInput.files[0];
+    if(file){
+      if(!/^image\/(jpe?g|png|webp)$/i.test(file.type))problems.push('a photo in JPG, PNG or WebP format');
+      if(file.size>4*1024*1024)problems.push('a photo smaller than 4 MB in size');
+    }
+    if(problems.length){
+      statusEl.hidden=false;statusEl.classList.add('is-error');statusEl.setAttribute('role','alert');
+      statusEl.textContent='Please add '+problems.join(', ')+'.';
+      return;
+    }
+    statusEl.hidden=false;
+    statusEl.textContent='Submitting your review…';
+    submitBtn.disabled=true;
+    try{
+      var res=await fetch('api/reviews.php?action=submit',{method:'POST',body:new FormData(form)});
+      var result=await res.json();
+      if(!res.ok||!result.ok)throw new Error(result.error||'Submission failed');
+      statusEl.classList.add('is-success');
+      statusEl.textContent='Thank you for sharing your experience! Your review has been received and will be reviewed before publication.';
+      form.reset();setStar(0,false);rvRating.value='';photoName.hidden=true;
+    }catch(err){
+      statusEl.classList.add('is-error');statusEl.setAttribute('role','alert');
+      statusEl.textContent=err.message==='Submission failed'||!err.message
+        ? 'We could not submit your review. Please try again or email viatrixtoursandtravelco@gmail.com.'
+        : err.message;
+    }finally{
+      submitBtn.disabled=false;
+    }
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
